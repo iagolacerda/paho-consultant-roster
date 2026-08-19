@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colors, spacing, typography } from '../../styles/tokens';
 
 export const Page = styled.div`
-  min-height: 100vh;
+  min-height: 100%;
   background: ${colors.canvasParchment};
   font-family: 'SF Pro Text', system-ui, -apple-system, sans-serif;
 `;
@@ -11,6 +11,10 @@ export const Content = styled.main`
   max-width: 1200px;
   margin: 0 auto;
   padding: ${spacing.xxl} ${spacing.xl};
+
+  @media (max-width: 720px) {
+    padding: ${spacing.lg} ${spacing.md};
+  }
 `;
 
 export const PageHeader = styled.div`
@@ -24,13 +28,13 @@ export const TitleRow = styled.div`
 `;
 
 export const PageTitle = styled.h1`
-  ${typography.displayMd}
+  ${typography.tagline}
   color: ${colors.ink};
   margin: 0 0 ${spacing.xs} 0;
 `;
 
 export const PageSubtitle = styled.p`
-  ${typography.body}
+  ${typography.caption}
   color: ${colors.inkMuted48};
   margin: 0;
 `;

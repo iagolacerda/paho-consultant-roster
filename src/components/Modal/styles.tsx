@@ -1,13 +1,24 @@
 import styled, { css } from 'styled-components';
-import { colors, radius, spacing, typography } from '../../styles/tokens';
+import { colors, media, radius, spacing, typography } from '../../styles/tokens';
 
 export type ModalPosition = 'left' | 'right' | 'center';
 
 const overlayAlign: Record<ModalPosition, ReturnType<typeof css>> = {
   left: css`justify-content: flex-start; align-items: stretch;`,
   right: css`justify-content: flex-end; align-items: stretch;`,
-  center: css`justify-content: center; align-items: center;`,
+  center: css`
+    justify-content: center;
+    align-items: center;
+
+    // No mobile o modal centralizado vira uma folha cheia, presa embaixo —
+    // só uma margem no topo deixa ver que ainda há conteúdo atrás.
+    ${media.sm} {
+      align-items: flex-end;
+    }
+  `,
 };
+
+const MOBILE_TOP_GAP = '56px';
 
 const panelVariant: Record<ModalPosition, ReturnType<typeof css>> = {
   left: css`
@@ -28,6 +39,14 @@ const panelVariant: Record<ModalPosition, ReturnType<typeof css>> = {
     max-height: 85vh;
     border-radius: ${radius.lg};
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.18);
+
+    ${media.sm} {
+      width: 100%;
+      max-width: 100%;
+      height: calc(100% - ${MOBILE_TOP_GAP});
+      max-height: none;
+      border-radius: ${radius.lg} ${radius.lg} 0 0;
+    }
   `,
 };
 
@@ -41,6 +60,7 @@ export const Overlay = styled.div<{ $position: ModalPosition }>`
 `;
 
 export const Panel = styled.div<{ $position: ModalPosition }>`
+  position: relative;
   background: ${colors.canvas};
   display: flex;
   flex-direction: column;
@@ -62,7 +82,7 @@ export const ModalTitle = styled.span`
   color: ${colors.ink};
 `;
 
-export const CloseButton = styled.button`
+export const CloseButton = styled.button<{ $floating?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,6 +94,13 @@ export const CloseButton = styled.button`
   border-radius: ${radius.sm};
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
+
+  ${({ $floating }) => $floating && css`
+    position: absolute;
+    top: ${spacing.md};
+    right: ${spacing.md};
+    z-index: 1;
+  `}
 
   &:hover {
     background: ${colors.canvasParchment};

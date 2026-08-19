@@ -17,7 +17,7 @@ const variantStyles: Record<ButtonVariant, ReturnType<typeof css>> = {
     color: ${colors.primary};
     border: 1px solid ${colors.primary};
     padding: 11px 22px;
-    &:hover { background: rgba(242, 111, 33, 0.06); }
+    &:hover { background: rgba(12, 59, 94, 0.06); }
   `,
   danger: css`
     background: transparent;

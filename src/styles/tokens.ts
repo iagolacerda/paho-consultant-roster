@@ -1,7 +1,7 @@
 export const colors = {
-  primary: '#f26f21',
-  primaryFocus: '#d9601a',
-  primaryOnDark: '#f9a46a',
+  primary: '#0c3b5e',
+  primaryFocus: '#092c47',
+  primaryOnDark: '#5b8fb5',
   ink: '#1d1d1f',
   inkMuted80: '#333333',
   inkMuted48: '#7a7a7a',
@@ -16,6 +16,25 @@ export const colors = {
   onPrimary: '#ffffff',
   onDark: '#ffffff',
   danger: '#c0392b',
+  dangerSurface: '#fbeae8',
+  success: '#1e824c',
+} as const;
+
+// Breakpoints únicos do projeto — usados tanto nos `@media` do
+// styled-components (via `media` abaixo) quanto no hook useBreakpoint
+// (src/hooks/useBreakpoint.ts, sobre react-responsive) para lógica em JS.
+export const breakpoints = {
+  xs: 480,
+  sm: 720,
+  md: 860,
+  lg: 1024,
+} as const;
+
+export const media = {
+  xs: `@media (max-width: ${breakpoints.xs}px)`,
+  sm: `@media (max-width: ${breakpoints.sm}px)`,
+  md: `@media (max-width: ${breakpoints.md}px)`,
+  lg: `@media (max-width: ${breakpoints.lg}px)`,
 } as const;
 
 export const radius = {

@@ -111,7 +111,7 @@ export const Day = styled.button<{ $muted?: boolean; $selected?: boolean; $inRan
   ${({ $inRange }) =>
     $inRange &&
     css`
-      background: rgba(242, 111, 33, 0.12);
+      background: rgba(12, 59, 94, 0.12);
       border-radius: 0;
     `}
 
@@ -123,6 +123,6 @@ export const Day = styled.button<{ $muted?: boolean; $selected?: boolean; $inRan
     `}
 
   &:hover {
-    background: ${({ $selected }) => ($selected ? colors.primaryFocus : 'rgba(242, 111, 33, 0.18)')};
+    background: ${({ $selected }) => ($selected ? colors.primaryFocus : 'rgba(12, 59, 94, 0.18)')};
   }
 `;

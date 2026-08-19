@@ -46,9 +46,15 @@ export const ResultsCount = styled.span`
   color: ${colors.inkMuted48};
 `;
 
+// Tabelas de mais de 2 colunas não funcionam em telas estreitas — abaixo de
+// 1024px (cobre tablet e celular) a lista empilhada (MobileList) assume.
 export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export const Th = styled.th`
@@ -64,7 +70,7 @@ export const Th = styled.th`
 `;
 
 export const Td = styled.td`
-  ${typography.body}
+  ${typography.caption}
   color: ${colors.ink};
   padding: ${spacing.md} ${spacing.lg};
   border-bottom: 1px solid ${colors.dividerSoft};
@@ -83,6 +89,15 @@ export const ChevronTd = styled(Td)`
   color: ${colors.inkMuted48};
   text-align: right;
   padding-right: ${spacing.lg};
+`;
+
+export const MobileList = styled.div`
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const EmptyState = styled.div`

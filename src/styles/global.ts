@@ -8,6 +8,10 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html, body, #root {
+    height: 100%;
+  }
+
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -22,6 +26,7 @@ export const GlobalStyle = createGlobalStyle`
     letter-spacing: -0.374px;
     color: ${colors.ink};
     background: ${colors.canvasParchment};
+    overflow: hidden;
   }
 
   button {

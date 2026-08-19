@@ -3,6 +3,7 @@ import { Modal } from '../Modal';
 import styled from 'styled-components';
 import { colors, spacing, typography, radius } from '../../styles/tokens';
 import { Button } from '../Buttons';
+import { useTranslation } from '../../i18n';
 
 export type FeedbackType = 'success' | 'error';
 
@@ -63,6 +64,7 @@ function ErrorIcon() {
 }
 
 export function FeedbackModal({ onClose, type, title, message }: FeedbackModalProps) {
+  const { t } = useTranslation();
   return (
     <Modal onClose={onClose} title="" position="center">
       <Body>
@@ -71,7 +73,7 @@ export function FeedbackModal({ onClose, type, title, message }: FeedbackModalPr
         </IconCircle>
         <Title>{title}</Title>
         {message && <Message>{message}</Message>}
-        <Button $variant="primary" onClick={onClose}>Fechar</Button>
+        <Button $variant="primary" onClick={onClose}>{t('common.close')}</Button>
       </Body>
     </Modal>
   );
