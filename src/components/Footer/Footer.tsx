@@ -6,6 +6,7 @@ import { Bar, SessionInfo, Clock } from './styles';
 // Mock: marca o carregamento do app como início da sessão — não há
 // autenticação real neste projeto ainda (ver mockSession.ts).
 const SESSION_STARTED_AT = Date.now();
+const SESSION_DURATION_SECONDS = 30 * 60; // expira em 30min de inatividade (mock)
 
 export function Footer() {
   const { t, language } = useTranslation();
@@ -16,11 +17,12 @@ export function Footer() {
     return () => clearInterval(id);
   }, []);
 
-  const sessionSeconds = Math.floor((now.getTime() - SESSION_STARTED_AT) / 1000);
+  const elapsedSeconds = Math.floor((now.getTime() - SESSION_STARTED_AT) / 1000);
+  const remainingSeconds = Math.max(0, SESSION_DURATION_SECONDS - elapsedSeconds);
 
   return (
     <Bar>
-      <SessionInfo>{t('footer.session')}: {formatDuration(sessionSeconds)}</SessionInfo>
+      <SessionInfo>{t('footer.session')}: {formatDuration(remainingSeconds)}</SessionInfo>
       <Clock>{formatDateTime(now, language)}</Clock>
     </Bar>
   );

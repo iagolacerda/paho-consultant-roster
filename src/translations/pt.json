@@ -41,14 +41,14 @@
     "recentJobsSubtitle": "As oportunidades mais recentes.",
     "viewAllJobs": "Ver todas as vagas",
     "profileCardTitle": "Perfil profissional",
-    "profileCardSubtitle": "É o que a PAHO usa para buscar consultores.",
+    "profileCardSubtitle": "É o que a organização usa para buscar consultores.",
     "continueProfile": "Continuar preenchimento",
     "carouselPrev": "Vaga anterior",
     "carouselNext": "Próxima vaga"
   },
   "opportunities": {
     "title": "Vagas",
-    "subtitle": "Oportunidades abertas que combinam com o roster de consultores da PAHO.",
+    "subtitle": "Oportunidades abertas que combinam com o roster de consultores.",
     "filters": "Filtros",
     "filtersTitle": "Filtrar vagas",
     "filterTechnicalArea": "Área técnica",
@@ -88,7 +88,7 @@
   },
   "contracts": {
     "title": "Minhas contratações",
-    "subtitle": "Acompanhe seus contratos firmados com a PAHO.",
+    "subtitle": "Acompanhe seus contratos firmados com a organização.",
     "columnContract": "Contrato",
     "columnCountry": "País",
     "columnSector": "Setor",
@@ -115,7 +115,7 @@
     "subtitle": "Atualize suas informações de contato."
   },
   "login": {
-    "brandTagline": "Roster de consultores da PAHO — perfis, vagas e candidaturas em um só lugar.",
+    "brandTagline": "Roster de consultores — perfis, vagas e candidaturas em um só lugar.",
     "title": "Entrar",
     "email": "E-mail",
     "emailPlaceholder": "voce@exemplo.org",
@@ -128,7 +128,7 @@
   },
   "consultantProfile": {
     "title": "Perfil do consultor",
-    "subtitle": "Preencha os dados abaixo para entrar no roster de consultores da PAHO.",
+    "subtitle": "Preencha os dados abaixo para entrar no roster de consultores.",
     "stepLabelMobile": "Etapa {{current}} de {{total}} — {{label}}",
     "steps": {
       "expertise": "Expertise técnica e idiomas",
@@ -166,7 +166,7 @@
       "primaryArea": "Área técnica primária",
       "secondaryAreas": "Áreas secundárias — até 3",
       "skillsTitle": "Habilidades",
-      "skillsDescription": "Selecione de 5 a 15 habilidades da lista padronizada da PAHO.",
+      "skillsDescription": "Selecione de 5 a 15 habilidades da lista padronizada.",
       "skillsSelected": "{{count}}/15 selecionadas",
       "skillRequestLabel": "Não encontrou sua habilidade?",
       "skillRequestHint": "A sugestão entra em fila de revisão antes de ficar disponível",
@@ -257,13 +257,13 @@
       "tobaccoTie": "Vínculos com a indústria do tabaco",
       "tobaccoAlcoholDescription": "Emprego, consultoria, financiamento ou participação — atual ou nos últimos 24 meses",
       "alcoholTie": "Vínculos com a indústria de bebidas alcoólicas",
-      "familyTie": "Relação familiar com a PAHO ou com a contraparte",
+      "familyTie": "Relação familiar com a organização ou com a contraparte",
       "familyTieDescription": "Cônjuge, companheiro(a), pai/mãe, filho(a) ou irmão(ã)",
       "debarment": "Constar em lista de impedimento da ONU ou nacional",
       "debarmentDescription": "Atualmente sancionado(a), suspenso(a) ou sob investigação",
-      "blockedNotice": "Vínculo declarado torna o perfil inelegível para matching. A política da PAHO veda vínculos com as indústrias de tabaco e álcool. Para contestar, procure a country office.",
+      "blockedNotice": "Vínculo declarado torna o perfil inelegível para matching. A política da organização veda vínculos com as indústrias de tabaco e álcool. Para contestar, procure a country office.",
       "attestation": "Atesto que tudo em meu perfil está completo e correto",
-      "attestationDescription": "Vou notificar a PAHO em até 15 dias sobre qualquer mudança que crie um conflito de interesse."
+      "attestationDescription": "Vou notificar a organização em até 15 dias sobre qualquer mudança que crie um conflito de interesse."
     },
     "review": {
       "submittedTitle": "Perfil enviado",
