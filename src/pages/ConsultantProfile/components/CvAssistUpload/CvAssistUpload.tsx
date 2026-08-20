@@ -1,8 +1,11 @@
+// React
 import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
+// Components
 import { Button } from '../../../../components/Buttons';
-import { useTranslation } from '../../../../i18n';
 import { MOCK_EXTRACTED_PROFILE, EXTRACTED_FIELD_SUMMARY_KEYS } from '../../../../data/paho/mockExtraction';
+import { useTranslation } from '../../../../i18n';
+// Local
 import {
   AssistCard,
   AssistBadge,

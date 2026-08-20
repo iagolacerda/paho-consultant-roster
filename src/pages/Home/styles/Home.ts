@@ -1,6 +1,8 @@
+// Libs
 import styled from 'styled-components';
-import { media, spacing } from '../../../styles/tokens';
+// Components
 import { SectionCard } from '../../../components/FormFields';
+import { media, spacing } from '../../../styles/tokens';
 
 export const DashboardStack = styled.div`
   display: flex;

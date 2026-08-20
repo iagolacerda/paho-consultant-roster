@@ -1,4 +1,6 @@
+// Libs
 import styled from 'styled-components';
+// Components
 import { colors, radius, typography } from '../../../styles/tokens';
 
 export const Brand = styled.span`

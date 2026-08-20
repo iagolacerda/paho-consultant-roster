@@ -1,3 +1,4 @@
+// Components
 import { Language } from '../i18n';
 
 const LOCALE_BY_LANGUAGE: Record<Language, string> = {

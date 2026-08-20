@@ -1,3 +1,4 @@
+// Local
 import { ConsultantProfileFormInput } from './types';
 
 // Resultado mockado de uma extração de currículo por IA — usa os mesmos

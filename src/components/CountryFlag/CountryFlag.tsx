@@ -1,4 +1,6 @@
+// React
 import React from 'react';
+// Local
 import { FlagIcon, FlagPlaceholder } from './styles';
 
 interface CountryFlagProps {

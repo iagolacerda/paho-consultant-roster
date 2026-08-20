@@ -1,4 +1,6 @@
+// Libs
 import styled, { keyframes } from 'styled-components';
+// Components
 import { colors, radius, spacing, typography } from '../../../styles/tokens';
 
 const shimmer = keyframes`

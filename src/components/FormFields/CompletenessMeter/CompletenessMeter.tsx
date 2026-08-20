@@ -1,6 +1,9 @@
+// React
 import React from 'react';
+// Components
 import { CompletenessResult, COMPLETENESS_THRESHOLD } from '../../../data/paho/completeness';
 import { useTranslation } from '../../../i18n';
+// Local
 import { MeterTrack, MeterFill, ScoreLabel, MissingList, MissingItem } from './styles';
 
 interface CompletenessMeterProps {

@@ -1,4 +1,6 @@
+// Libs
 import styled, { css } from 'styled-components';
+// Components
 import { colors, media, radius, spacing, typography } from '../../../styles/tokens';
 
 export type ModalPosition = 'left' | 'right' | 'center';

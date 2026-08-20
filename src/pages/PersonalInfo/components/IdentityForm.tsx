@@ -1,11 +1,13 @@
+// React
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
-import { PersonalIdentityFormValues } from '../validators';
-import { useChoiceSets } from '../../../data/paho/useChoiceSets';
-import { useTranslation } from '../../../i18n';
-import { Input, Select } from '../../../components/Inputs';
+// Components
 import { CountrySelect } from '../../../components/CountrySelect';
 import { Field, FieldGrid, SectionCard, SectionTitle, SectionDescription } from '../../../components/FormFields';
+import { Input, Select } from '../../../components/Inputs';
+import { useChoiceSets } from '../../../data/paho/useChoiceSets';
+import { useTranslation } from '../../../i18n';
+import { PersonalIdentityFormValues } from '../validators';
 
 export function IdentityForm() {
   const { register, formState: { errors } } = useFormContext<PersonalIdentityFormValues>();

@@ -1,4 +1,6 @@
+// Libs
 import styled from 'styled-components';
+// Components
 import { colors, radius, spacing, typography } from '../../../styles/tokens';
 
 export const Card = styled.button`

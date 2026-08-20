@@ -1,4 +1,6 @@
+// React
 import React, { useEffect, useRef, useState } from 'react';
+// Local
 import {
   Wrapper, Trigger, TriggerText, Popover, Header, MonthLabel, NavButton, Grid, Weekday, Day,
 } from './styles';

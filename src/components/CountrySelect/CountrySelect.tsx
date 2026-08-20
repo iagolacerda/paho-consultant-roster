@@ -1,10 +1,13 @@
+// React
 import React, { useRef, useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import { useChoiceSets } from '../../data/paho/useChoiceSets';
+// Components
 import { isoCodeByValue } from '../../data/paho/countryFlags';
-import { useTranslation } from '../../i18n';
+import { useChoiceSets } from '../../data/paho/useChoiceSets';
 import { useClickOutside } from '../../hooks/useClickOutside';
+import { useTranslation } from '../../i18n';
 import { CountryFlag } from '../CountryFlag';
+// Local
 import { Wrap, Trigger, TriggerLabel, Dropdown, SearchInput, OptionRow, EmptyOption } from './styles';
 
 interface CountrySelectProps {

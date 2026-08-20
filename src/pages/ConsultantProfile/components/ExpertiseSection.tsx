@@ -1,14 +1,17 @@
+// React
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
-import { ConsultantProfileFormValues } from '../validators';
+// Components
+import { Field, SectionCard, SectionTitle, SectionDescription } from '../../../components/FormFields';
+import { Input, Select } from '../../../components/Inputs';
 import { useChoiceSets } from '../../../data/paho/useChoiceSets';
 import { useTranslation } from '../../../i18n';
-import { Input, Select } from '../../../components/Inputs';
-import { Field, SectionCard, SectionTitle, SectionDescription } from '../../../components/FormFields';
+import { ConsultantProfileFormValues } from '../validators';
+// Local
 import { ChipMultiSelect } from './ChipMultiSelect/ChipMultiSelect';
-import { SkillsPicker } from './SkillsPicker/SkillsPicker';
-import { LanguagesPicker } from './LanguagesPicker/LanguagesPicker';
 import { CvAssistUpload } from './CvAssistUpload/CvAssistUpload';
+import { LanguagesPicker } from './LanguagesPicker/LanguagesPicker';
+import { SkillsPicker } from './SkillsPicker/SkillsPicker';
 
 export function ExpertiseSection() {
   const { register, watch, formState: { errors } } = useFormContext<ConsultantProfileFormValues>();

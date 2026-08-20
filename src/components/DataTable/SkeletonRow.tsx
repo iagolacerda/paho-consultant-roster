@@ -1,4 +1,6 @@
+// React
 import React from 'react';
+// Local
 import { Tr, Td, SkeletonBar } from './styles';
 
 const WIDTHS = ['55%', '80%', '45%', '65%', '50%', '70%', '40%', '60%'];

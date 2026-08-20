@@ -1,3 +1,4 @@
+// React
 import { useEffect, RefObject } from 'react';
 
 // Fecha um dropdown/menu ao clicar fora dele — usado por UserMenu e pelo

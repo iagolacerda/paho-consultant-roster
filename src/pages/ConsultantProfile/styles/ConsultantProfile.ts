@@ -1,6 +1,8 @@
+// Libs
 import styled from 'styled-components';
-import { colors, media, radius, spacing, typography } from '../../../styles/tokens';
+// Components
 import { FOOTER_HEIGHT } from '../../../components/Footer';
+import { colors, media, radius, spacing, typography } from '../../../styles/tokens';
 
 // Grid com uma coluna de 96px por etapa (círculo e rótulo caem na mesma
 // coluna, então centralizam juntos automaticamente) e uma coluna 1fr entre

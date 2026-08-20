@@ -1,13 +1,16 @@
+// React
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { FormProvider } from 'react-hook-form';
-import { Page, Content, PageHeading } from '../../components/PageShell';
+import { useNavigate } from 'react-router-dom';
+// Components
 import { Button } from '../../components/Buttons';
 import { FeedbackModal } from '../../components/FeedbackModal';
+import { Page, Content, PageHeading } from '../../components/PageShell';
 import { useModal } from '../../hooks/useModal';
 import { useTranslation } from '../../i18n';
-import { useIdentityForm } from './hooks';
+// Local
 import { IdentityForm } from './components';
+import { useIdentityForm } from './hooks';
 import { SaveRow } from './styles';
 
 export function PersonalInfo() {

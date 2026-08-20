@@ -1,5 +1,8 @@
+// React
 import React from 'react';
+// Libs
 import styled from 'styled-components';
+// Components
 import { colors, radius } from '../../styles/tokens';
 
 interface StatusConfig {

@@ -1,6 +1,10 @@
+// React
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+// Components
+import { useTranslation } from '../../../i18n';
+import { consultantProfileService, SubmittedProfile } from '../../../services/consultantProfileService';
 import {
   buildConsultantProfileSchema,
   ConsultantProfileFormValues,
@@ -8,8 +12,6 @@ import {
   EMPTY_PROFILE,
   SECTION_FIELDS,
 } from '../validators';
-import { consultantProfileService, SubmittedProfile } from '../../../services/consultantProfileService';
-import { useTranslation } from '../../../i18n';
 
 export const STEPS = [
   { key: 'expertise', labelKey: 'consultantProfile.steps.expertise', fields: SECTION_FIELDS.expertise },

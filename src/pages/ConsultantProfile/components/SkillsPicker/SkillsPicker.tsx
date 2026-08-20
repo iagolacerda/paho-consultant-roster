@@ -1,9 +1,12 @@
+// React
 import React, { useMemo, useState } from 'react';
 import { useFieldArray, useFormContext } from 'react-hook-form';
+// Components
+import { Select } from '../../../../components/Inputs';
 import { labelFor } from '../../../../data/paho/choiceSets';
 import { useChoiceSets } from '../../../../data/paho/useChoiceSets';
 import { useTranslation } from '../../../../i18n';
-import { Select } from '../../../../components/Inputs';
+// Local
 import {
   Picker,
   SearchBar,

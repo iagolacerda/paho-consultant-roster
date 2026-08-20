@@ -1,10 +1,12 @@
+// React
 import React from 'react';
 import { FormProvider } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { Page, Content, PageHeading } from '../../components/PageShell';
+// Components
 import { Button } from '../../components/Buttons';
+import { Page, Content, PageHeading } from '../../components/PageShell';
 import { useTranslation } from '../../i18n';
-import { useConsultantProfileForm } from './hooks';
+// Local
 import {
   ProfileStepper,
   ExpertiseSection,
@@ -13,6 +15,7 @@ import {
   ComplianceSection,
   ReviewSection,
 } from './components';
+import { useConsultantProfileForm } from './hooks';
 import { FooterBar, FooterSpacer, FooterSpacerBlock } from './styles';
 
 const SECTION_COMPONENTS: Record<string, React.ComponentType> = {

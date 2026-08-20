@@ -1,4 +1,6 @@
+// React
 import React from 'react';
+// Local
 import { HomeIcon, ProfileIcon, ApplicationsIcon, BriefcaseIcon, JobsIcon, ContractIcon } from './icons';
 
 export interface NavLinkItem {

@@ -1,8 +1,9 @@
 // Réplica da aba "4. Completeness Scoring" do Field Dictionary.
 // Um perfil abaixo de 70 não é retornado pelo matching (BR-05 / V-20).
 
-import { ConsultantProfileFormValues } from './types';
+// Local
 import { CURRENT_USER } from './mockSession';
+import { ConsultantProfileFormValues } from './types';
 
 export const COMPLETENESS_THRESHOLD = 70;
 

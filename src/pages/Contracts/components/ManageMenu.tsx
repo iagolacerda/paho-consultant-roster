@@ -1,10 +1,12 @@
+// React
 import React, { useRef, useState } from 'react';
-import { Contract } from '../../../data/paho/mockContracts';
-import { useModal } from '../../../hooks/useModal';
-import { useClickOutside } from '../../../hooks/useClickOutside';
-import { useTranslation } from '../../../i18n';
+// Components
 import { FeedbackModal } from '../../../components/FeedbackModal';
 import { KebabIcon, LogoutIcon } from '../../../components/icons';
+import { Contract } from '../../../data/paho/mockContracts';
+import { useClickOutside } from '../../../hooks/useClickOutside';
+import { useModal } from '../../../hooks/useModal';
+import { useTranslation } from '../../../i18n';
 import { IconButton, ManageDropdown, ManageItem } from '../styles';
 
 interface ManageMenuProps {

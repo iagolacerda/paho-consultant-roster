@@ -1,4 +1,6 @@
+// Libs
 import styled from 'styled-components';
+// Components
 import { breakpoints, colors, spacing } from '../../../styles/tokens';
 
 // No desktop mostra só marca + idioma (a navegação e as informações do

@@ -1,4 +1,6 @@
+// React
 import React from 'react';
+// Components
 import { useTranslation } from '../../../i18n';
 import { StepBar, StepButton, StepLabelButton, StepCircle, StepConnector, StepTitle, MobileStepLabel } from '../styles';
 

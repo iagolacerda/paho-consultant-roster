@@ -1,15 +1,12 @@
+// React
 import React from 'react';
+// Components
 import { colors } from '../../../styles/tokens';
+// Local
 import { CheckboxWrap, HiddenInput, Box } from './styles';
 
 export type CheckboxProps = React.InputHTMLAttributes<HTMLInputElement>;
 
-// Substitui o checkbox nativo (aparência inconsistente entre navegadores)
-// por uma caixa desenhada — o input real fica presente e funcional, só
-// visualmente escondido, então leitores de tela e navegação por teclado
-// continuam funcionando normalmente. O estado marcado/desmarcado vem de
-// `checked` (passe-o explicitamente mesmo usando react-hook-form's
-// `register`, já que register() sozinho não expõe o valor atual).
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(({ checked, ...props }, ref) => (
   <CheckboxWrap>
     <HiddenInput type="checkbox" checked={checked} ref={ref} {...props} />

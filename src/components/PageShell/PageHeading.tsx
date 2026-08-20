@@ -1,5 +1,8 @@
+// React
 import React from 'react';
+// Components
 import { BackButton } from '../Buttons';
+// Local
 import { PageHeader, TitleRow, PageHeaderIcon, PageTitle, PageSubtitle } from './styles';
 
 interface PageHeadingProps {

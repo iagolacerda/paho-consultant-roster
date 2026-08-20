@@ -1,3 +1,4 @@
+// Local
 import { CompletenessResult, COMPLETENESS_THRESHOLD } from './completeness';
 
 // Estado mockado do perfil profissional do usuário logado, para exibir na

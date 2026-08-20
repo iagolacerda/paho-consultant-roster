@@ -1,4 +1,6 @@
+// Libs
 import styled from 'styled-components';
+// Components
 import { colors } from '../../../styles/tokens';
 
 export const FlagIcon = styled.span<{ $size?: number }>`

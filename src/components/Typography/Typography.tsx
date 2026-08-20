@@ -1,5 +1,8 @@
+// React
 import React from 'react';
+// Libs
 import styled, { css } from 'styled-components';
+// Components
 import { colors, typography } from '../../styles/tokens';
 
 export type TypographyType =

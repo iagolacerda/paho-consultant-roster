@@ -1,5 +1,8 @@
+// React
 import React from 'react';
+// Components
 import { useTranslation } from '../../i18n';
+// Local
 import { PaginationBar, PaginationInfo, PaginationControls, PageButton, Ellipsis } from './styles';
 
 interface PaginationProps {

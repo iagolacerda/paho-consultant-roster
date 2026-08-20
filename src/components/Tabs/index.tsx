@@ -1,5 +1,7 @@
+// React
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+// Local
 import { TabBar, TabItem } from './styles';
 
 interface Tab {

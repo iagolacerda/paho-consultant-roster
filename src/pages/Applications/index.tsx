@@ -1,17 +1,19 @@
+// React
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Page, Content, PageHeading } from '../../components/PageShell';
-import { ResultsCard, Table, Th, Td, Tr, ChevronTd, EmptyState, MobileList } from '../../components/DataTable';
+// Components
 import { Badge } from '../../components/Badge';
-import { Pagination } from '../../components/Pagination';
-import { MOCK_OPPORTUNITIES, Opportunity } from '../../data/paho/mockOpportunities';
-import { Application, APPLICATION_STATUS_STYLES } from '../../data/paho/mockApplications';
-import { applicationsService } from '../../services/applicationsService';
-import { ListRow, RowMain, RowTitle, RowMeta, RowChevron } from '../../components/ListRow';
-import { ApplicationsIcon } from '../../components/icons';
-import { isoCodeByName } from '../../data/paho/countryFlags';
 import { CountryFlag } from '../../components/CountryFlag';
+import { ResultsCard, Table, Th, Td, Tr, ChevronTd, EmptyState, MobileList } from '../../components/DataTable';
+import { ApplicationsIcon } from '../../components/icons';
+import { ListRow, RowMain, RowTitle, RowMeta, RowChevron } from '../../components/ListRow';
+import { Page, Content, PageHeading } from '../../components/PageShell';
+import { Pagination } from '../../components/Pagination';
+import { isoCodeByName } from '../../data/paho/countryFlags';
+import { Application, APPLICATION_STATUS_STYLES } from '../../data/paho/mockApplications';
+import { MOCK_OPPORTUNITIES, Opportunity } from '../../data/paho/mockOpportunities';
 import { useTranslation } from '../../i18n';
+import { applicationsService } from '../../services/applicationsService';
 
 interface ApplicationRow {
   app: Application;

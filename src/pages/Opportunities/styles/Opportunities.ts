@@ -1,4 +1,6 @@
+// Libs
 import styled from 'styled-components';
+// Components
 import { media, spacing } from '../../../styles/tokens';
 
 export const FilterBar = styled.div`

@@ -1,6 +1,9 @@
+// React
 import React from 'react';
-import { NAV_LINKS, NavLinkItem } from '../navLinks';
+// Components
 import { useTranslation } from '../../i18n';
+import { NAV_LINKS, NavLinkItem } from '../navLinks';
+// Local
 import { NavItem, NavIcon } from './styles';
 
 interface NavListProps {

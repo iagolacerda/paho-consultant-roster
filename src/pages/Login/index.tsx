@@ -1,11 +1,13 @@
-import React, { useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+// React
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Input } from '../../components/Inputs';
+import React, { useMemo } from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+// Components
 import { Checkbox } from '../../components/FormFields';
+import { Input } from '../../components/Inputs';
 import { useTranslation } from '../../i18n';
-import { buildLoginSchema, LoginValues, EMPTY_LOGIN } from './validators';
+// Local
 import {
   Screen,
   BrandPanel,
@@ -21,6 +23,7 @@ import {
   RememberRow,
   SubmitButton,
 } from './styles';
+import { buildLoginSchema, LoginValues, EMPTY_LOGIN } from './validators';
 
 export function Login() {
   const navigate = useNavigate();

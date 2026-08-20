@@ -1,4 +1,6 @@
+// Libs
 import styled from 'styled-components';
+// Components
 import { colors, radius, spacing, typography } from '../../../styles/tokens';
 
 // min-height compartilhado com LinkCard — sem isso os dois cards ficam com

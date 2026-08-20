@@ -1,7 +1,9 @@
+// React
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
-import { colors } from '../../../../styles/tokens';
+// Components
 import { Checkbox } from '../../../../components/FormFields/Checkbox/Checkbox';
+import { colors } from '../../../../styles/tokens';
 import { Option, OptionText, OptionTitle, OptionDescription } from '../RadioOptionGroup/styles';
 
 interface CheckboxFieldProps {

@@ -1,14 +1,16 @@
+// React
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+// Components
+import { CURRENT_USER } from '../../../data/paho/mockSession';
+import { useTranslation } from '../../../i18n';
 import {
   buildPersonalIdentitySchema,
   PersonalIdentityFormValues,
   PersonalIdentityFormInput,
   EMPTY_PERSONAL_IDENTITY,
 } from '../validators';
-import { CURRENT_USER } from '../../../data/paho/mockSession';
-import { useTranslation } from '../../../i18n';
 
 const DEFAULT_VALUES: Partial<PersonalIdentityFormInput> = {
   ...EMPTY_PERSONAL_IDENTITY,

@@ -1,6 +1,9 @@
+// React
 import React, { useRef, useState } from 'react';
-import { useTranslation, Language } from '../../i18n';
+// Components
 import { useClickOutside } from '../../hooks/useClickOutside';
+import { useTranslation, Language } from '../../i18n';
+// Local
 import { Wrap, Trigger, Chevron, Dropdown, OptionRow } from './styles';
 
 const LANGUAGE_LABELS: Record<Language, string> = {

@@ -1,4 +1,6 @@
+// Libs
 import styled from 'styled-components';
+// Components
 import { colors, media, spacing, typography } from '../../../styles/tokens';
 
 // Altura fixa desse rodapé — usada por App.tsx (padding-bottom do MainArea) e

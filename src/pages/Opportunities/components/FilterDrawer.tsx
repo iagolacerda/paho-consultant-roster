@@ -1,13 +1,8 @@
+// React
 import React, { useRef, useState } from 'react';
-import { Modal } from '../../../components/Modal';
+// Components
 import { Button } from '../../../components/Buttons';
-import { Select } from '../../../components/Inputs';
-import { Field } from '../../../components/FormFields';
 import { CountryFlag } from '../../../components/CountryFlag';
-import { isoCodeByName } from '../../../data/paho/countryFlags';
-import { useClickOutside } from '../../../hooks/useClickOutside';
-import { useTranslation } from '../../../i18n';
-import { FilterActions } from '../styles';
 import {
   Wrap as CountryWrap,
   Trigger as CountryTrigger,
@@ -15,6 +10,13 @@ import {
   Dropdown as CountryDropdown,
   OptionRow as CountryOptionRow,
 } from '../../../components/CountrySelect/styles';
+import { Field } from '../../../components/FormFields';
+import { Select } from '../../../components/Inputs';
+import { Modal } from '../../../components/Modal';
+import { isoCodeByName } from '../../../data/paho/countryFlags';
+import { useClickOutside } from '../../../hooks/useClickOutside';
+import { useTranslation } from '../../../i18n';
+import { FilterActions } from '../styles';
 
 export interface OpportunityFilters {
   technicalArea: string;

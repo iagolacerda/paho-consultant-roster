@@ -1,4 +1,6 @@
+// React
 import React, { useEffect, useRef, useState } from 'react';
+// Local
 import { Wrap, Track, Item, NavButton } from './styles';
 
 interface CarouselProps {

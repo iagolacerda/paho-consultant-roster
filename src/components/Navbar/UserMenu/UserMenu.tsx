@@ -1,14 +1,17 @@
+// React
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Modal } from '../../Modal';
-import { LanguageSwitch } from '../../LanguageSwitch';
-import { NavList } from '../../NavList';
-import { NavItem, NavIcon } from '../../NavList/styles';
-import { PROFILE_LINK } from '../../navLinks';
+// Components
 import { CURRENT_USER } from '../../../data/paho/mockSession';
 import { useModal } from '../../../hooks/useModal';
 import { useTranslation } from '../../../i18n';
 import { LogoutIcon, MenuIcon } from '../../icons';
+import { LanguageSwitch } from '../../LanguageSwitch';
+import { Modal } from '../../Modal';
+import { PROFILE_LINK } from '../../navLinks';
+import { NavList } from '../../NavList';
+import { NavItem, NavIcon } from '../../NavList/styles';
+// Local
 import { UserButton, Avatar, UserName, DropdownItem, DropdownDivider, ProfileRow } from './styles';
 
 // Só usado no mobile (ver Navbar.tsx) — no desktop a sidebar já mostra as

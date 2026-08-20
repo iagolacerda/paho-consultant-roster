@@ -1,4 +1,6 @@
+// Libs
 import styled from 'styled-components';
+// Components
 import { colors, radius } from '../../../styles/tokens';
 
 export const CheckboxWrap = styled.span`

@@ -1,6 +1,8 @@
+// React
 import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
-import pt from '../translations/pt.json';
+// Components
 import en from '../translations/en.json';
+import pt from '../translations/pt.json';
 
 export type Language = 'pt' | 'en';
 

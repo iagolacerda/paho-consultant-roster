@@ -1,12 +1,15 @@
+// React
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
-import { ConsultantProfileFormValues } from '../validators';
+// Components
+import { Field, FieldGrid, SectionCard, SectionTitle, SectionDescription } from '../../../components/FormFields';
+import { Input, Select } from '../../../components/Inputs';
 import { useChoiceSets } from '../../../data/paho/useChoiceSets';
 import { useTranslation } from '../../../i18n';
-import { Input, Select } from '../../../components/Inputs';
-import { Field, FieldGrid, SectionCard, SectionTitle, SectionDescription } from '../../../components/FormFields';
-import { RadioOptionGroup } from './RadioOptionGroup/RadioOptionGroup';
+import { ConsultantProfileFormValues } from '../validators';
+// Local
 import { FileUploadField } from './FileUploadField/FileUploadField';
+import { RadioOptionGroup } from './RadioOptionGroup/RadioOptionGroup';
 
 const STATUS_DESCRIPTION_KEYS: Record<number, string> = {
   10: 'sections.availability.statusAvailableDescription',

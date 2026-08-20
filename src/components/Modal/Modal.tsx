@@ -1,5 +1,8 @@
+// React
 import React from 'react';
+// Components
 import { useTranslation } from '../../i18n';
+// Local
 import { Overlay, Panel, ModalHeader, ModalTitle, CloseButton, ModalBody, ModalPosition } from './styles';
 
 interface ModalProps {

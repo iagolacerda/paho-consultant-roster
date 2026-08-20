@@ -1,4 +1,6 @@
+// Libs
 import { useMediaQuery } from 'react-responsive';
+// Components
 import { breakpoints } from '../styles/tokens';
 
 // Mesmos breakpoints usados nos `@media` do styled-components

@@ -1,12 +1,13 @@
+// React
 import React, { useEffect, useState } from 'react';
+// Components
 import { useTranslation } from '../../i18n';
 import { formatDateTime, formatDuration } from '../../utils/date';
+// Local
 import { Bar, SessionInfo, Clock } from './styles';
 
-// Mock: marca o carregamento do app como início da sessão — não há
-// autenticação real neste projeto ainda (ver mockSession.ts).
 const SESSION_STARTED_AT = Date.now();
-const SESSION_DURATION_SECONDS = 30 * 60; // expira em 30min de inatividade (mock)
+const SESSION_DURATION_SECONDS = 30 * 60;
 
 export function Footer() {
   const { t, language } = useTranslation();

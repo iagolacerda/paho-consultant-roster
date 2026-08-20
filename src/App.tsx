@@ -1,20 +1,23 @@
+// React
 import React from 'react';
-import styled from 'styled-components';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
-import { GlobalStyle } from './styles/global';
-import { I18nProvider } from './i18n';
+// Libs
+import styled from 'styled-components';
+// Local
+import { Footer, FOOTER_HEIGHT } from './components/Footer';
 import { Navbar } from './components/Navbar';
 import { Sidebar } from './components/Sidebar';
-import { Footer, FOOTER_HEIGHT } from './components/Footer';
+import { I18nProvider } from './i18n';
+import { Applications } from './pages/Applications';
+import { ConsultantProfile } from './pages/ConsultantProfile';
+import { Contracts } from './pages/Contracts';
 import { Home } from './pages/Home';
+import { Login } from './pages/Login';
 import { Opportunities } from './pages/Opportunities';
 import { OpportunityDetail } from './pages/OpportunityDetail';
-import { Applications } from './pages/Applications';
-import { Contracts } from './pages/Contracts';
-import { Profile } from './pages/Profile';
 import { PersonalInfo } from './pages/PersonalInfo';
-import { ConsultantProfile } from './pages/ConsultantProfile';
-import { Login } from './pages/Login';
+import { Profile } from './pages/Profile';
+import { GlobalStyle } from './styles/global';
 
 const AppRoot = styled.div`
   height: 100vh;

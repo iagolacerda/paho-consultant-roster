@@ -1,6 +1,9 @@
+// React
 import React, { useState } from 'react';
-import { Modal } from '../Modal';
+// Components
 import { Button, ButtonVariant } from '../Buttons';
+import { Modal } from '../Modal';
+// Local
 import { Body, Message, Actions, ErrorText } from './styles';
 
 export interface DialogProps {

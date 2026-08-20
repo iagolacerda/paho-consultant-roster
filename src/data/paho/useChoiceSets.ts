@@ -1,5 +1,8 @@
+// React
 import { useMemo } from 'react';
+// Components
 import { useTranslation } from '../../i18n';
+// Local
 import {
   ChoiceDef,
   ChoiceOption,

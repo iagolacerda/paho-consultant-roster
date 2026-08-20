@@ -1,6 +1,9 @@
+// React
 import React, { useRef, useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
+// Components
 import { useClickOutside } from '../../../hooks/useClickOutside';
+// Local
 import { Wrap, Trigger, TriggerLabel, Dropdown, OptionRow } from './styles';
 
 export interface SelectOption {

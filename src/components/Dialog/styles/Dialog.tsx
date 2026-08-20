@@ -1,4 +1,6 @@
+// Libs
 import styled from 'styled-components';
+// Components
 import { colors, spacing, typography } from '../../../styles/tokens';
 
 export const Body = styled.div`

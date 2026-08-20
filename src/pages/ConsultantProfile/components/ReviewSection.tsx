@@ -1,14 +1,16 @@
+// React
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
-import { ConsultantProfileFormValues } from '../validators';
-import { calculateCompleteness } from '../../../data/paho/completeness';
+// Components
+import { SectionCard, SectionTitle, SectionDescription, CompletenessMeter } from '../../../components/FormFields';
 import { labelFor } from '../../../data/paho/choiceSets';
+import { calculateCompleteness } from '../../../data/paho/completeness';
 import { useChoiceSets } from '../../../data/paho/useChoiceSets';
 import { useTranslation } from '../../../i18n';
-import { formatDateTime } from '../../../utils/date';
-import { SectionCard, SectionTitle, SectionDescription, CompletenessMeter } from '../../../components/FormFields';
-import { SummaryGrid, SummaryTerm, SummaryValue } from '../styles';
 import { SubmittedProfile } from '../../../services/consultantProfileService';
+import { formatDateTime } from '../../../utils/date';
+import { SummaryGrid, SummaryTerm, SummaryValue } from '../styles';
+import { ConsultantProfileFormValues } from '../validators';
 
 interface ReviewSectionProps {
   submitted?: SubmittedProfile;

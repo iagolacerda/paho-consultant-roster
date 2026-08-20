@@ -1,10 +1,12 @@
+// React
 import React, { useState } from 'react';
 import { useFieldArray, useFormContext } from 'react-hook-form';
+// Components
+import { Button } from '../../../../components/Buttons';
+import { Select } from '../../../../components/Inputs';
 import { labelFor } from '../../../../data/paho/choiceSets';
 import { useChoiceSets } from '../../../../data/paho/useChoiceSets';
 import { useTranslation } from '../../../../i18n';
-import { Select } from '../../../../components/Inputs';
-import { Button } from '../../../../components/Buttons';
 import { SelectedTable, RemoveButton } from '../SkillsPicker/styles';
 
 const DEFAULT_PROFICIENCY = 20; // "Intermediário de trabalho"

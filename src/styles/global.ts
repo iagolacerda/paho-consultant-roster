@@ -1,4 +1,6 @@
+// Libs
 import { createGlobalStyle } from 'styled-components';
+// Local
 import { colors } from './tokens';
 
 export const GlobalStyle = createGlobalStyle`

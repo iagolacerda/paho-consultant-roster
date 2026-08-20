@@ -1,17 +1,20 @@
+// React
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Page, Content, PageHeader, TitleRow, PageTitle, PageSubtitle } from '../../components/PageShell';
-import { BackButton, Button } from '../../components/Buttons';
+// Components
 import { Badge } from '../../components/Badge';
+import { BackButton, Button } from '../../components/Buttons';
+import { CountryFlag } from '../../components/CountryFlag';
 import { FeedbackModal } from '../../components/FeedbackModal';
+import { Page, Content, PageHeader, TitleRow, PageTitle, PageSubtitle } from '../../components/PageShell';
+import { isoCodeByName } from '../../data/paho/countryFlags';
+import { APPLICATION_STATUS_STYLES } from '../../data/paho/mockApplications';
+import { MOCK_OPPORTUNITIES } from '../../data/paho/mockOpportunities';
 import { useModal } from '../../hooks/useModal';
 import { useTranslation } from '../../i18n';
-import { formatDate } from '../../utils/date';
-import { isoCodeByName } from '../../data/paho/countryFlags';
-import { CountryFlag } from '../../components/CountryFlag';
-import { MOCK_OPPORTUNITIES } from '../../data/paho/mockOpportunities';
-import { APPLICATION_STATUS_STYLES } from '../../data/paho/mockApplications';
 import { applicationsService } from '../../services/applicationsService';
+import { formatDate } from '../../utils/date';
+// Local
 import {
   DetailCard,
   BadgeRow,

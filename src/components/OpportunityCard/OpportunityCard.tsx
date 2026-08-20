@@ -1,11 +1,14 @@
+// React
 import React from 'react';
-import { Opportunity } from '../../data/paho/mockOpportunities';
+// Components
+import { isoCodeByName } from '../../data/paho/countryFlags';
 import { ApplicationStatus, APPLICATION_STATUS_STYLES } from '../../data/paho/mockApplications';
-import { Badge } from '../Badge';
+import { Opportunity } from '../../data/paho/mockOpportunities';
 import { useTranslation } from '../../i18n';
 import { formatDate } from '../../utils/date';
-import { isoCodeByName } from '../../data/paho/countryFlags';
+import { Badge } from '../Badge';
 import { CountryFlag } from '../CountryFlag';
+// Local
 import { Card, CardHeader, CardBody, CardBadges, CardTitle, CardSummary, CardMeta } from './styles';
 
 interface OpportunityCardProps {

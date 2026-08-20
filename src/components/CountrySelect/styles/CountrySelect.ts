@@ -1,4 +1,6 @@
+// Libs
 import styled from 'styled-components';
+// Components
 import { colors, radius, typography } from '../../../styles/tokens';
 import { inputBase } from '../../Inputs/Input/styles';
 

@@ -1,15 +1,18 @@
+// React
 import React, { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Page, Content, PageHeading } from '../../components/PageShell';
-import { OpportunityCard } from '../../components/OpportunityCard';
+// Components
 import { Button } from '../../components/Buttons';
-import { Pagination } from '../../components/Pagination';
 import { EmptyState } from '../../components/DataTable';
 import { FilterIcon, JobsIcon } from '../../components/icons';
+import { OpportunityCard } from '../../components/OpportunityCard';
+import { Page, Content, PageHeading } from '../../components/PageShell';
+import { Pagination } from '../../components/Pagination';
+import { MOCK_OPPORTUNITIES } from '../../data/paho/mockOpportunities';
 import { useModal } from '../../hooks/useModal';
 import { useTranslation } from '../../i18n';
-import { MOCK_OPPORTUNITIES } from '../../data/paho/mockOpportunities';
 import { applicationsService } from '../../services/applicationsService';
+// Local
 import { FilterDrawer, OpportunityFilters, EMPTY_OPPORTUNITY_FILTERS } from './components';
 import { FilterBar, CardGrid } from './styles';
 

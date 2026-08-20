@@ -1,15 +1,18 @@
+// React
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
-import { ConsultantProfileFormValues } from '../validators';
+// Components
+import { Field, FieldGrid, SectionCard, SectionTitle, SectionDescription } from '../../../components/FormFields';
+import { Input } from '../../../components/Inputs';
 import { NO_INSTITUTIONAL_TIE_VALUE } from '../../../data/paho/choiceSets';
 import { useChoiceSets } from '../../../data/paho/useChoiceSets';
 import { useTranslation } from '../../../i18n';
-import { Input } from '../../../components/Inputs';
 import { colors } from '../../../styles/tokens';
-import { Field, FieldGrid, SectionCard, SectionTitle, SectionDescription } from '../../../components/FormFields';
-import { RadioOptionGroup } from './RadioOptionGroup/RadioOptionGroup';
+import { ConsultantProfileFormValues } from '../validators';
+// Local
 import { CheckboxField } from './CheckboxField/CheckboxField';
 import { FileUploadField } from './FileUploadField/FileUploadField';
+import { RadioOptionGroup } from './RadioOptionGroup/RadioOptionGroup';
 
 const TIE_DESCRIPTION_KEYS: Record<number, string> = {
   10: 'sections.compliance.tieFederalDescription',

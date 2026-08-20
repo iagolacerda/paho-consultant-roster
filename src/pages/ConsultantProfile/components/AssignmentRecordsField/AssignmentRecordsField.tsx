@@ -1,12 +1,15 @@
+// React
 import React from 'react';
 import { useFieldArray, useFormContext } from 'react-hook-form';
-import { useChoiceSets } from '../../../../data/paho/useChoiceSets';
-import { useTranslation } from '../../../../i18n';
-import { Input, Select } from '../../../../components/Inputs';
+// Components
 import { CountrySelect } from '../../../../components/CountrySelect';
-import { ChipMultiSelect } from '../ChipMultiSelect/ChipMultiSelect';
 import { Field } from '../../../../components/FormFields/shared/Field';
 import { FieldGrid, CharCount } from '../../../../components/FormFields/shared/styles';
+import { Input, Select } from '../../../../components/Inputs';
+import { useChoiceSets } from '../../../../data/paho/useChoiceSets';
+import { useTranslation } from '../../../../i18n';
+import { ChipMultiSelect } from '../ChipMultiSelect/ChipMultiSelect';
+// Local
 import { RecordCard, RecordHeader, RecordTitle, RemoveButton, AddButton, TextArea } from './styles';
 
 const MIN_RECORDS = 2;

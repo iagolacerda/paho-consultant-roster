@@ -1,3 +1,4 @@
+// Components
 import { Application, SEED_APPLICATIONS } from '../data/paho/mockApplications';
 
 // Mock: sem chamada de rede, estado mantido em memória — mesma convenção

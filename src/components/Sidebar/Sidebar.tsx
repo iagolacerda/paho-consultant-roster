@@ -1,7 +1,10 @@
+// React
 import React from 'react';
-import { NavList } from '../NavList';
-import { PROFILE_LINK } from '../navLinks';
+// Components
 import { CURRENT_USER } from '../../data/paho/mockSession';
+import { PROFILE_LINK } from '../navLinks';
+import { NavList } from '../NavList';
+// Local
 import { SidebarShell, SidebarTop, SidebarDivider, UserRow, Avatar, UserName } from './styles';
 
 // No desktop as informações do usuário e o link para "Meu perfil" ficam

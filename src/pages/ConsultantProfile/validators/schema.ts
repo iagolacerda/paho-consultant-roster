@@ -3,7 +3,9 @@
 // que vivem em pages/PersonalInfo/validators). Implementa as regras da aba
 // "3. Validation Rules" do Field Dictionary que se aplicam a este formulário.
 
+// Libs
 import { z } from 'zod';
+// Components
 import { NO_INSTITUTIONAL_TIE_VALUE } from '../../../data/paho/choiceSets';
 
 type T = (key: string, vars?: Record<string, string | number>) => string;

@@ -1,7 +1,10 @@
+// React
 import React, { useEffect, useRef, useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
+// Components
 import { ChoiceOption } from '../../../../data/paho/choiceSets';
 import { useTranslation } from '../../../../i18n';
+// Local
 import { Wrap, BadgeRow, Badge, RemoveBadge, SearchInput, Dropdown, DropdownOption, EmptyOption, LimitHint } from './styles';
 
 interface ChipMultiSelectProps {

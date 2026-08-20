@@ -1,14 +1,17 @@
+// React
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
-import { ConsultantProfileFormValues } from '../validators';
+// Components
+import { CountryFlag } from '../../../components/CountryFlag';
+import { Field, FieldGrid, SectionCard, SectionTitle, SectionDescription } from '../../../components/FormFields';
+import { Input, Select } from '../../../components/Inputs';
+import { isoCodeByValue } from '../../../data/paho/countryFlags';
 import { useChoiceSets } from '../../../data/paho/useChoiceSets';
 import { useTranslation } from '../../../i18n';
-import { Input, Select } from '../../../components/Inputs';
-import { CountryFlag } from '../../../components/CountryFlag';
-import { isoCodeByValue } from '../../../data/paho/countryFlags';
-import { Field, FieldGrid, SectionCard, SectionTitle, SectionDescription } from '../../../components/FormFields';
-import { ChipMultiSelect } from './ChipMultiSelect/ChipMultiSelect';
+import { ConsultantProfileFormValues } from '../validators';
+// Local
 import { AssignmentRecordsField } from './AssignmentRecordsField/AssignmentRecordsField';
+import { ChipMultiSelect } from './ChipMultiSelect/ChipMultiSelect';
 
 export function ExperienceSection() {
   const { register, formState: { errors } } = useFormContext<ConsultantProfileFormValues>();

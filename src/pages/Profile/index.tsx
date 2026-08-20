@@ -1,9 +1,12 @@
+// React
 import { useNavigate } from 'react-router-dom';
+// Components
+import { Button } from '../../components/Buttons';
+import { BriefcaseIcon, ProfileIcon, LogoutIcon } from '../../components/icons';
 import { Page, Content, PageHeading } from '../../components/PageShell';
 import { CURRENT_USER } from '../../data/paho/mockSession';
-import { BriefcaseIcon, ProfileIcon, LogoutIcon } from '../../components/icons';
-import { Button } from '../../components/Buttons';
 import { useTranslation } from '../../i18n';
+// Local
 import {
   AccountCard,
   AvatarLg,

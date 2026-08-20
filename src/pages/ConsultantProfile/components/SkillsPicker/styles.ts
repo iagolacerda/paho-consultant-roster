@@ -1,6 +1,8 @@
+// Libs
 import styled from 'styled-components';
-import { colors, radius, spacing, typography } from '../../../../styles/tokens';
+// Components
 import { inputBase } from '../../../../components/Inputs/Input/styles';
+import { colors, radius, spacing, typography } from '../../../../styles/tokens';
 
 export const Picker = styled.div`
   border: 1px solid ${colors.hairline};
