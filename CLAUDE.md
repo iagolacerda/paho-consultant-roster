@@ -106,4 +106,6 @@ Imports are auto-sorted on save (VS Code `emeraldwalk.runonsave` → `scripts/so
 // Local      → same-directory relative imports (./components, ../domain, etc.)
 ```
 
-ESLint additionally enforces `import/order` and `import/no-duplicates` (warnings) as a backstop. `i18next/no-literal-string` warns on hardcoded JSX label/placeholder/title/subtitle/description strings — this project's i18n is hand-rolled (`useTranslation()` + `src/translations/{pt,en}.json`), so user-facing text should always go through `t(...)`.
+ESLint additionally enforces `import/order` and `import/no-duplicates` (warnings) as a backstop.
+
+User-facing text should always go through `t(...)` (this project's i18n is hand-rolled — `useTranslation()` + `src/translations/{pt,en}.json`), but this isn't lint-enforced: `eslint-plugin-i18next`'s `no-literal-string` rule was tried and dropped — it false-positives heavily on this codebase (string args to `register('fieldName')` inside JSX expression containers, decorative glyphs like `✓`), and Vercel's build runs with `CI=true`, which turns any ESLint warning into a hard build failure. Keep this in mind before adding new warn-level rules — verify with `CI=true npm run build` locally (not just `CI=false`) before relying on one.

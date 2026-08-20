@@ -37,8 +37,7 @@
       "react-app/jest"
     ],
     "plugins": [
-      "react-hooks",
-      "i18next"
+      "react-hooks"
     ],
     "rules": {
       "react-hooks/exhaustive-deps": "warn",
@@ -48,15 +47,6 @@
         {
           "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
           "newlines-between": "ignore"
-        }
-      ],
-      "i18next/no-literal-string": [
-        "warn",
-        {
-          "mode": "jsx-only",
-          "jsx-attributes": {
-            "include": ["label", "placeholder", "title", "subtitle", "description"]
-          }
         }
       ]
     }
@@ -76,7 +66,6 @@
   "devDependencies": {
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.36",
-    "eslint-plugin-i18next": "^6.1.5",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-react-hooks": "^4.6.2"
   }
