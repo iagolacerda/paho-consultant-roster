@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Input } from '../../components/Inputs';
 import { Checkbox } from '../../components/FormFields';
 import { useTranslation } from '../../i18n';
-import { buildLoginSchema, LoginValues, EMPTY_LOGIN } from './schema';
+import { buildLoginSchema, LoginValues, EMPTY_LOGIN } from './validators';
 import {
   Screen,
   BrandPanel,

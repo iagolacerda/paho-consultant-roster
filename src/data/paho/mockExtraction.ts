@@ -1,4 +1,4 @@
-import { ConsultantProfileFormInput } from './schema';
+import { ConsultantProfileFormInput } from './types';
 
 // Resultado mockado de uma extração de currículo por IA — usa os mesmos
 // valores da aba "6. Sample Profile" do Field Dictionary. Quando a extração

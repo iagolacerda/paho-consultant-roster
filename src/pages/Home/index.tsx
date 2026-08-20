@@ -1,21 +1,23 @@
-import React from 'react';
+// React
 import { useNavigate } from 'react-router-dom';
-import { Page, Content, PageHeading } from '../../components/PageShell';
-import { SectionTitle, SectionDescription, CompletenessMeter } from '../../components/FormFields';
-import { OpportunityCard } from '../../components/OpportunityCard';
-import { Carousel } from '../../components/Carousel';
-import { Button } from '../../components/Buttons';
+// Components
 import { Badge } from '../../components/Badge';
+import { Button } from '../../components/Buttons';
 import { CountryFlag } from '../../components/CountryFlag';
-import { ListRow, RowMain, RowTitle, RowMeta, RowChevron } from '../../components/ListRow';
+import { SectionTitle, SectionDescription, CompletenessMeter } from '../../components/FormFields';
 import { HomeIcon } from '../../components/icons';
-import { useTranslation } from '../../i18n';
-import { CURRENT_USER } from '../../data/paho/mockSession';
-import { MOCK_PROFILE_STATUS } from '../../data/paho/mockProfileStatus';
-import { MOCK_OPPORTUNITIES } from '../../data/paho/mockOpportunities';
-import { APPLICATION_STATUS_STYLES } from '../../data/paho/mockApplications';
-import { applicationsService } from '../../services/applicationsService';
+import { ListRow, RowMain, RowTitle, RowMeta, RowChevron } from '../../components/ListRow';
+import { OpportunityCard } from '../../components/OpportunityCard';
+import { Page, Content, PageHeading } from '../../components/PageShell';
 import { isoCodeByName } from '../../data/paho/countryFlags';
+import { APPLICATION_STATUS_STYLES } from '../../data/paho/mockApplications';
+import { MOCK_OPPORTUNITIES } from '../../data/paho/mockOpportunities';
+import { MOCK_PROFILE_STATUS } from '../../data/paho/mockProfileStatus';
+import { CURRENT_USER } from '../../data/paho/mockSession';
+import { useTranslation } from '../../i18n';
+import { applicationsService } from '../../services/applicationsService';
+// Local
+import { Carousel } from './components';
 import { DashboardStack, CardFoot, ProfileCard, OpportunitiesCard, ViewAllRow, CarouselWrap, MobileOpportunityList } from './styles';
 
 const RECENT_OPPORTUNITIES = MOCK_OPPORTUNITIES.slice(0, 8);

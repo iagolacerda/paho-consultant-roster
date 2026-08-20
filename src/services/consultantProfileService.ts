@@ -1,4 +1,4 @@
-import { ConsultantProfileFormValues } from '../data/paho/schema';
+import { ConsultantProfileFormValues } from '../pages/ConsultantProfile/validators';
 
 function delay<T>(value: T, ms = 900): Promise<T> {
   return new Promise((resolve) => setTimeout(() => resolve(value), ms));

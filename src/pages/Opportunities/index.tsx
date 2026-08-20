@@ -10,7 +10,7 @@ import { useModal } from '../../hooks/useModal';
 import { useTranslation } from '../../i18n';
 import { MOCK_OPPORTUNITIES } from '../../data/paho/mockOpportunities';
 import { applicationsService } from '../../services/applicationsService';
-import { FilterDrawer, OpportunityFilters, EMPTY_OPPORTUNITY_FILTERS } from './FilterDrawer';
+import { FilterDrawer, OpportunityFilters, EMPTY_OPPORTUNITY_FILTERS } from './components';
 import { FilterBar, CardGrid } from './styles';
 
 const PAGE_SIZE = 6;

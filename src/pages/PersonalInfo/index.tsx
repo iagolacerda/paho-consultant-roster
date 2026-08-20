@@ -6,8 +6,8 @@ import { Button } from '../../components/Buttons';
 import { FeedbackModal } from '../../components/FeedbackModal';
 import { useModal } from '../../hooks/useModal';
 import { useTranslation } from '../../i18n';
-import { useIdentityForm } from './useIdentityForm';
-import { IdentityForm } from './IdentityForm';
+import { useIdentityForm } from './hooks';
+import { IdentityForm } from './components';
 import { SaveRow } from './styles';
 
 export function PersonalInfo() {

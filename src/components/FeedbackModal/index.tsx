@@ -1,9 +1,12 @@
+// React
 import React from 'react';
-import { Modal } from '../Modal';
+// Libs
 import styled from 'styled-components';
+// Components
+import { useTranslation } from '../../i18n';
 import { colors, spacing, typography, radius } from '../../styles/tokens';
 import { Button } from '../Buttons';
-import { useTranslation } from '../../i18n';
+import { Modal } from '../Modal';
 
 export type FeedbackType = 'success' | 'error';
 

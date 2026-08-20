@@ -11,7 +11,7 @@ import { CountryFlag } from '../../components/CountryFlag';
 import { downloadMockFile } from '../../utils/mockDownload';
 import { useTranslation } from '../../i18n';
 import { formatDate } from '../../utils/date';
-import { ManageMenu } from './ManageMenu';
+import { ManageMenu } from './components';
 import {
   ActionsCell,
   IconButton,

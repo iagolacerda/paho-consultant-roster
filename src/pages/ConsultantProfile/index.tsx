@@ -4,14 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import { Page, Content, PageHeading } from '../../components/PageShell';
 import { Button } from '../../components/Buttons';
 import { useTranslation } from '../../i18n';
-import { useConsultantProfileForm } from './useConsultantProfileForm';
-import { ProfileStepper } from './ProfileStepper';
+import { useConsultantProfileForm } from './hooks';
+import {
+  ProfileStepper,
+  ExpertiseSection,
+  ExperienceSection,
+  AvailabilitySection,
+  ComplianceSection,
+  ReviewSection,
+} from './components';
 import { FooterBar, FooterSpacer, FooterSpacerBlock } from './styles';
-import { ExpertiseSection } from './sections/ExpertiseSection';
-import { ExperienceSection } from './sections/ExperienceSection';
-import { AvailabilitySection } from './sections/AvailabilitySection';
-import { ComplianceSection } from './sections/ComplianceSection';
-import { ReviewSection } from './sections/ReviewSection';
 
 const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   expertise: ExpertiseSection,

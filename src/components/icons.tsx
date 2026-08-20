@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function HomeIcon() {
   return (
     <svg width="17" height="17" viewBox="0 0 20 20" fill="none">
