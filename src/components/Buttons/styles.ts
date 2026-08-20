@@ -16,14 +16,16 @@ const variantStyles: Record<ButtonVariant, ReturnType<typeof css>> = {
     background: transparent;
     color: ${colors.primary};
     border: 1px solid ${colors.primary};
-    padding: 11px 22px;
+    padding: 8px 19px;
+    font-size: 14px;
     &:hover { background: rgba(12, 59, 94, 0.06); }
   `,
   danger: css`
     background: transparent;
     color: ${colors.danger};
     border: 1px solid ${colors.danger};
-    padding: 11px 22px;
+    padding: 8px 19px;
+    font-size: 14px;
     &:hover { background: rgba(192, 57, 43, 0.06); }
   `,
 };

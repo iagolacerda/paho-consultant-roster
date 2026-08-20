@@ -26,12 +26,22 @@ const panelVariant: Record<ModalPosition, ReturnType<typeof css>> = {
     max-width: 90vw;
     height: 100%;
     box-shadow: 8px 0 24px rgba(0, 0, 0, 0.12);
+
+    ${media.sm} {
+      width: 100vw;
+      max-width: 100vw;
+    }
   `,
   right: css`
     width: 400px;
     max-width: 90vw;
     height: 100%;
     box-shadow: -8px 0 24px rgba(0, 0, 0, 0.12);
+
+    ${media.sm} {
+      width: 100vw;
+      max-width: 100vw;
+    }
   `,
   center: css`
     width: 480px;

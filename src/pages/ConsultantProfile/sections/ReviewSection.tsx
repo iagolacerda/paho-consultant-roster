@@ -5,6 +5,7 @@ import { calculateCompleteness } from '../../../data/paho/completeness';
 import { labelFor } from '../../../data/paho/choiceSets';
 import { useChoiceSets } from '../../../data/paho/useChoiceSets';
 import { useTranslation } from '../../../i18n';
+import { formatDateTime } from '../../../utils/date';
 import { SectionCard, SectionTitle, SectionDescription, CompletenessMeter } from '../../../components/FormFields';
 import { SummaryGrid, SummaryTerm, SummaryValue } from '../styles';
 import { SubmittedProfile } from '../../../services/consultantProfileService';
@@ -17,7 +18,7 @@ interface ReviewSectionProps {
 export function ReviewSection({ submitted, submitError }: ReviewSectionProps) {
   const { watch } = useFormContext<ConsultantProfileFormValues>();
   const { t, language } = useTranslation();
-  const { TECHNICAL_AREAS, COUNTRIES, LANGUAGES, PROFICIENCIES } = useChoiceSets();
+  const { TECHNICAL_AREAS, LANGUAGES, PROFICIENCIES } = useChoiceSets();
   const values = watch();
   const completeness = calculateCompleteness(values);
 
@@ -32,7 +33,7 @@ export function ReviewSection({ submitted, submitError }: ReviewSectionProps) {
           <SummaryTerm>{t('sections.review.status')}</SummaryTerm>
           <SummaryValue>{submitted.profileStatus}</SummaryValue>
           <SummaryTerm>{t('sections.review.submittedAt')}</SummaryTerm>
-          <SummaryValue>{new Date(submitted.submittedAt).toLocaleString(language === 'pt' ? 'pt-BR' : 'en-US')}</SummaryValue>
+          <SummaryValue>{formatDateTime(submitted.submittedAt, language)}</SummaryValue>
         </SummaryGrid>
       </SectionCard>
     );
@@ -49,10 +50,6 @@ export function ReviewSection({ submitted, submitError }: ReviewSectionProps) {
       <SectionCard>
         <SectionTitle>{t('sections.review.summaryTitle')}</SectionTitle>
         <SummaryGrid as="dl">
-          <SummaryTerm>{t('sections.review.name')}</SummaryTerm>
-          <SummaryValue>{values.firstName} {values.lastName}</SummaryValue>
-          <SummaryTerm>{t('sections.review.countryCity')}</SummaryTerm>
-          <SummaryValue>{values.city}, {labelFor(COUNTRIES, values.countryResidence)}</SummaryValue>
           <SummaryTerm>{t('sections.review.primaryArea')}</SummaryTerm>
           <SummaryValue>{labelFor(TECHNICAL_AREAS, values.primaryArea) || t('sections.review.empty')}</SummaryValue>
           <SummaryTerm>{t('sections.review.skills')}</SummaryTerm>

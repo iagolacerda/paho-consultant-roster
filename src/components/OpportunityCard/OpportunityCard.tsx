@@ -3,7 +3,10 @@ import { Opportunity } from '../../data/paho/mockOpportunities';
 import { ApplicationStatus, APPLICATION_STATUS_STYLES } from '../../data/paho/mockApplications';
 import { Badge } from '../Badge';
 import { useTranslation } from '../../i18n';
-import { Card, CardBadges, CardTitle, CardSummary, CardMeta } from './styles';
+import { formatDate } from '../../utils/date';
+import { isoCodeByName } from '../../data/paho/countryFlags';
+import { CountryFlag } from '../CountryFlag';
+import { Card, CardHeader, CardBody, CardBadges, CardTitle, CardSummary, CardMeta } from './styles';
 
 interface OpportunityCardProps {
   opportunity: Opportunity;
@@ -12,22 +15,28 @@ interface OpportunityCardProps {
 }
 
 export function OpportunityCard({ opportunity, onClick, status }: OpportunityCardProps) {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const statusLabel = status ? t(`applicationStatus.${status}`) : undefined;
   return (
     <Card type="button" onClick={onClick}>
-      <CardBadges>
-        {statusLabel && <Badge label={statusLabel} statusMap={{ [statusLabel]: APPLICATION_STATUS_STYLES[status as ApplicationStatus] }} />}
-        <Badge label={opportunity.technicalArea} />
-        <Badge label={opportunity.band} />
-      </CardBadges>
-      <CardTitle>{opportunity.title}</CardTitle>
-      <CardSummary>{opportunity.summary}</CardSummary>
-      <CardMeta>
-        <span>{opportunity.country}</span>
-        <span>{opportunity.startDate} – {opportunity.endDate}</span>
-        <span>{opportunity.reference}</span>
-      </CardMeta>
+      <CardHeader>
+        <CardTitle>{opportunity.title}</CardTitle>
+      </CardHeader>
+      <CardBody>
+        <CardSummary>{opportunity.summary}</CardSummary>
+        <CardBadges>
+          {statusLabel && <Badge label={statusLabel} statusMap={{ [statusLabel]: APPLICATION_STATUS_STYLES[status as ApplicationStatus] }} />}
+          <Badge label={opportunity.technicalArea} />
+          <Badge label={opportunity.band} />
+        </CardBadges>
+        <CardMeta>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+            <CountryFlag code={isoCodeByName(opportunity.country)} label={opportunity.country} />
+            {opportunity.country}
+          </span>
+          <span>{formatDate(opportunity.startDate, language)} – {formatDate(opportunity.endDate, language)}</span>
+        </CardMeta>
+      </CardBody>
     </Card>
   );
 }

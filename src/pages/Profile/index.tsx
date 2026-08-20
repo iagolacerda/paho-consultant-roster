@@ -1,8 +1,8 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Page, Content, PageHeader, PageTitle, PageSubtitle } from '../../components/PageShell';
+import { Page, Content, PageHeading } from '../../components/PageShell';
 import { CURRENT_USER } from '../../data/paho/mockSession';
-import { BriefcaseIcon } from '../../components/icons';
+import { BriefcaseIcon, ProfileIcon, LogoutIcon } from '../../components/icons';
+import { Button } from '../../components/Buttons';
 import { useTranslation } from '../../i18n';
 import {
   AccountCard,
@@ -14,10 +14,9 @@ import {
   LinkTitle,
   LinkDescription,
   Chevron,
+  LogoutRow,
 } from './styles';
 
-// Dados da conta (identidade de login) — separados do perfil profissional,
-// que é o formulário estruturado usado pelo matching do roster.
 export function Profile() {
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -25,18 +24,15 @@ export function Profile() {
   return (
     <Page>
       <Content>
-        <PageHeader>
-          <PageTitle>{t('profile.title')}</PageTitle>
-          <PageSubtitle>{t('profile.subtitle')}</PageSubtitle>
-        </PageHeader>
+        <PageHeading icon={<ProfileIcon />} title={t('profile.title')} subtitle={t('profile.subtitle')} />
 
-        <AccountCard>
+        <AccountCard type="button" onClick={() => navigate('/perfil/dados-pessoais')}>
           <AvatarLg>{CURRENT_USER.initials}</AvatarLg>
           <div>
             <AccountName>{CURRENT_USER.name}</AccountName>
             <AccountDetail>{CURRENT_USER.email}</AccountDetail>
-            <AccountDetail>{CURRENT_USER.phone}</AccountDetail>
           </div>
+          <Chevron>→</Chevron>
         </AccountCard>
 
         <LinkCard type="button" onClick={() => navigate('/perfil-profissional')}>
@@ -47,6 +43,13 @@ export function Profile() {
           </div>
           <Chevron>→</Chevron>
         </LinkCard>
+
+        <LogoutRow>
+          <Button type="button" $variant="danger" onClick={() => navigate('/login')}>
+            <LogoutIcon />
+            {t('navbar.logout')}
+          </Button>
+        </LogoutRow>
       </Content>
     </Page>
   );

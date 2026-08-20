@@ -52,7 +52,7 @@ export function ComplianceSection() {
         />
       </Field>
 
-      <div style={{ marginTop: 16 }}>
+      <div style={{ marginTop: 12 }}>
         <Field label={t('sections.compliance.dedicationRegime')} required error={errors.dedicationRegime?.message}>
           <RadioOptionGroup
             name="dedicationRegime"
@@ -62,7 +62,7 @@ export function ComplianceSection() {
       </div>
 
       {needsAuth && (
-        <div style={{ marginTop: 16 }}>
+        <div style={{ marginTop: 12 }}>
           <SectionDescription style={{ color: colors.inkMuted80, fontWeight: 600 }}>
             {t('sections.compliance.employerAuthNotice')}
           </SectionDescription>
@@ -77,7 +77,7 @@ export function ComplianceSection() {
         </div>
       )}
 
-      <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <div style={{ marginTop: 12, display: 'flex', flexDirection: 'column', gap: 8 }}>
         <Field label={t('sections.compliance.declareLabel')}>
           <CheckboxField
             name="tobaccoTie"
@@ -105,12 +105,12 @@ export function ComplianceSection() {
       </div>
 
       {blocked && (
-        <div style={{ marginTop: 16, background: colors.dangerSurface, color: colors.danger, borderRadius: 8, padding: '10px 13px', fontSize: 12.8 }}>
+        <div style={{ marginTop: 12, background: colors.dangerSurface, color: colors.danger, borderRadius: 8, padding: '10px 13px', fontSize: 12.8 }}>
           {t('sections.compliance.blockedNotice')}
         </div>
       )}
 
-      <div style={{ marginTop: 16 }}>
+      <div style={{ marginTop: 12 }}>
         <CheckboxField
           name="attested"
           label={t('sections.compliance.attestation')}

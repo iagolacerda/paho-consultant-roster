@@ -3,6 +3,7 @@ import { useFieldArray, useFormContext } from 'react-hook-form';
 import { useChoiceSets } from '../../../data/paho/useChoiceSets';
 import { useTranslation } from '../../../i18n';
 import { Input, Select } from '../../Inputs';
+import { CountrySelect } from '../../CountrySelect';
 import { ChipMultiSelect } from '../ChipMultiSelect/ChipMultiSelect';
 import { Field } from '../shared/Field';
 import { FieldGrid, CharCount } from '../shared/styles';
@@ -33,7 +34,7 @@ export function AssignmentRecordsField({ name }: AssignmentRecordsFieldProps) {
   const { control, register, formState, watch } = useFormContext();
   const { fields, append, remove } = useFieldArray({ control, name: name as 'assignments' });
   const { t } = useTranslation();
-  const { SECTORS, COUNTRIES, ASSIGNMENT_ROLES, SKILL_GROUPS } = useChoiceSets();
+  const { SECTORS, ASSIGNMENT_ROLES, SKILL_GROUPS } = useChoiceSets();
   const profileSkills: { skill: number }[] = watch('skills') ?? [];
   const skillOptions = SKILL_GROUPS.flatMap((g) => g.items).filter((s) =>
     profileSkills.some((p) => p.skill === s.value),
@@ -81,12 +82,7 @@ export function AssignmentRecordsField({ name }: AssignmentRecordsFieldProps) {
                 </Select>
               </Field>
               <Field label={t('sections.experience.assignmentCountry')} required error={rowErrors.country?.message}>
-                <Select {...register(`${name}.${index}.country` as const, { valueAsNumber: true })} defaultValue="">
-                  <option value="" disabled>{t('common.select')}</option>
-                  {COUNTRIES.map((c) => (
-                    <option key={c.value} value={c.value}>{c.label}</option>
-                  ))}
-                </Select>
+                <CountrySelect name={`${name}.${index}.country`} />
               </Field>
               <Field label={t('sections.experience.assignmentRole')} required error={rowErrors.role?.message}>
                 <Select {...register(`${name}.${index}.role` as const, { valueAsNumber: true })} defaultValue="">

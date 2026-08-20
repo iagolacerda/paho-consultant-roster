@@ -2,6 +2,10 @@
   "common": {
     "select": "Select…",
     "none": "None",
+    "all": "All",
+    "of": "of",
+    "item": "item",
+    "items": "items",
     "doNotInform": "Prefer not to say",
     "back": "← Back",
     "next": "Next →",
@@ -20,30 +24,49 @@
     "myProfile": "My profile",
     "logout": "Log out"
   },
+  "footer": {
+    "session": "Session"
+  },
   "nav": {
     "home": "Home",
     "opportunities": "Opportunities",
     "applications": "My applications",
+    "contracts": "My engagements",
     "professionalProfile": "Professional profile"
   },
   "home": {
     "title": "Welcome back, {{name}}",
     "subtitle": "A summary of your profile and the latest openings.",
     "recentJobsTitle": "Latest open opportunities",
-    "recentJobsSubtitle": "The 5 most recent openings.",
+    "recentJobsSubtitle": "The most recent openings.",
     "viewAllJobs": "View all opportunities",
     "profileCardTitle": "Professional profile",
     "profileCardSubtitle": "This is what PAHO uses to search for consultants.",
-    "continueProfile": "Continue filling it in"
+    "continueProfile": "Continue filling it in",
+    "carouselPrev": "Previous opportunity",
+    "carouselNext": "Next opportunity"
   },
   "opportunities": {
     "title": "Opportunities",
-    "subtitle": "Open positions that match the PAHO consultant roster."
+    "subtitle": "Open positions that match the PAHO consultant roster.",
+    "filters": "Filters",
+    "filtersTitle": "Filter opportunities",
+    "filterTechnicalArea": "Technical area",
+    "filterCountry": "Country",
+    "filterBand": "Band",
+    "applyFilters": "Apply filters",
+    "clearFilters": "Clear filters",
+    "emptyResults": "No opportunities found with these filters."
+  },
+  "pagination": {
+    "previousPage": "Previous page",
+    "nextPage": "Next page"
   },
   "opportunityDetail": {
     "notFoundTitle": "Opportunity not found",
     "back": "Back",
     "country": "Country",
+    "sector": "Sector",
     "period": "Period",
     "about": "About the assignment",
     "requirements": "Requirements",
@@ -60,13 +83,36 @@
     "empty": "You haven't applied to any opportunity yet.",
     "columnJob": "Opportunity",
     "columnCountry": "Country",
+    "columnSector": "Sector",
     "columnStatus": "Status"
+  },
+  "contracts": {
+    "title": "My engagements",
+    "subtitle": "Track your contracts signed with PAHO.",
+    "columnContract": "Contract",
+    "columnCountry": "Country",
+    "columnSector": "Sector",
+    "columnStatus": "Status",
+    "columnEndDate": "End date",
+    "statusActive": "Active",
+    "statusInactive": "Inactive",
+    "download": "Download contract",
+    "manage": "Manage",
+    "terminate": "Terminate contract",
+    "terminationRequestedTitle": "Request sent",
+    "terminationRequestedMessage": "Your termination request has been recorded."
   },
   "profile": {
     "title": "My profile",
     "subtitle": "Your account details.",
     "professionalProfileTitle": "Professional profile",
-    "professionalProfileDescription": "Technical area, skills, experience, availability and compliance — what PAHO uses to search for consultants."
+    "professionalProfileDescription": "Technical area, skills, experience, availability and compliance.",
+    "savedTitle": "Details saved",
+    "savedMessage": "Your personal information has been updated."
+  },
+  "personalInfo": {
+    "title": "Personal information",
+    "subtitle": "Update your contact details."
   },
   "login": {
     "brandTagline": "PAHO's consultant roster — profiles, opportunities and applications in one place.",
@@ -85,7 +131,6 @@
     "subtitle": "Fill in the details below to join PAHO's consultant roster.",
     "stepLabelMobile": "Step {{current}} of {{total}} — {{label}}",
     "steps": {
-      "identity": "Identity and contact",
       "expertise": "Technical expertise and languages",
       "experience": "Experience and assignments",
       "availability": "Availability and documents",

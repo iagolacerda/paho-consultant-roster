@@ -2,6 +2,7 @@ export const colors = {
   primary: '#0c3b5e',
   primaryFocus: '#092c47',
   primaryOnDark: '#5b8fb5',
+  primarySurface: '#e6eef4',
   ink: '#1d1d1f',
   inkMuted80: '#333333',
   inkMuted48: '#7a7a7a',

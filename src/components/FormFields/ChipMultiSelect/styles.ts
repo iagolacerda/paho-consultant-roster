@@ -64,7 +64,9 @@ export const Dropdown = styled.div`
 `;
 
 export const DropdownOption = styled.button`
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   width: 100%;
   text-align: left;
   background: none;

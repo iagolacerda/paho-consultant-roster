@@ -4,6 +4,8 @@ import { ConsultantProfileFormValues } from '../../../data/paho/schema';
 import { useChoiceSets } from '../../../data/paho/useChoiceSets';
 import { useTranslation } from '../../../i18n';
 import { Input, Select } from '../../../components/Inputs';
+import { CountryFlag } from '../../../components/CountryFlag';
+import { isoCodeByValue } from '../../../data/paho/countryFlags';
 import {
   Field,
   FieldGrid,
@@ -42,21 +44,25 @@ export function ExperienceSection() {
           </Field>
         </FieldGrid>
 
-        <div style={{ marginTop: 16 }}>
+        <div style={{ marginTop: 12 }}>
           <Field label={t('sections.experience.fieldOfStudy')} error={errors.fieldOfStudy?.message}>
             <Input placeholder={t('sections.experience.fieldOfStudyPlaceholder')} {...register('fieldOfStudy')} />
           </Field>
         </div>
 
-        <div style={{ marginTop: 16 }}>
+        <div style={{ marginTop: 12 }}>
           <Field label={t('sections.experience.sectors')}>
             <ChipMultiSelect name="sectors" options={SECTORS} />
           </Field>
         </div>
 
-        <div style={{ marginTop: 16 }}>
+        <div style={{ marginTop: 12 }}>
           <Field label={t('sections.experience.countriesWorked')}>
-            <ChipMultiSelect name="countriesWorked" options={COUNTRIES} />
+            <ChipMultiSelect
+              name="countriesWorked"
+              options={COUNTRIES}
+              renderIcon={(value) => <CountryFlag code={isoCodeByValue(value)} />}
+            />
           </Field>
         </div>
       </SectionCard>

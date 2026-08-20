@@ -38,7 +38,7 @@ export function AvailabilitySection() {
           />
         </Field>
 
-        <FieldGrid $cols={2} style={{ marginTop: 16 }}>
+        <FieldGrid $cols={2} style={{ marginTop: 12 }}>
           <Field label={t('sections.availability.availableFrom')} required error={errors.availableFrom?.message}>
             <Input type="date" {...register('availableFrom')} />
           </Field>
@@ -47,7 +47,7 @@ export function AvailabilitySection() {
           </Field>
         </FieldGrid>
 
-        <FieldGrid $cols={2} style={{ marginTop: 16 }}>
+        <FieldGrid $cols={2} style={{ marginTop: 12 }}>
           <Field label={t('sections.availability.maxCommitment')} required error={errors.maxCommitment?.message}>
             <Select {...register('maxCommitment', { valueAsNumber: true })} defaultValue="">
               <option value="" disabled>{t('common.select')}</option>
@@ -66,7 +66,7 @@ export function AvailabilitySection() {
           </Field>
         </FieldGrid>
 
-        <FieldGrid $cols={2} style={{ marginTop: 16 }}>
+        <FieldGrid $cols={2} style={{ marginTop: 12 }}>
           <Field label={t('sections.availability.workMode')} required error={errors.workMode?.message}>
             <Select {...register('workMode', { valueAsNumber: true })} defaultValue="">
               <option value="" disabled>{t('common.select')}</option>
@@ -94,7 +94,7 @@ export function AvailabilitySection() {
           <FileUploadField name="cvFile" accept=".pdf,.doc,.docx" acceptLabel={t('sections.availability.cvFileAcceptHint')} />
         </Field>
 
-        <div style={{ marginTop: 16 }}>
+        <div style={{ marginTop: 12 }}>
           <Field
             label={t('sections.availability.cvLink')}
             hint={t('sections.availability.cvLinkHint')}

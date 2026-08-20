@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { colors, media, radius, spacing, typography } from '../../styles/tokens';
+import { FOOTER_HEIGHT } from '../../components/Footer';
 
 // Grid com uma coluna de 96px por etapa (círculo e rótulo caem na mesma
 // coluna, então centralizam juntos automaticamente) e uma coluna 1fr entre
@@ -13,7 +14,7 @@ export const StepBar = styled.div<{ $columns: number }>`
   display: grid;
   grid-template-columns: ${({ $columns }) => `repeat(${$columns - 1}, 96px 1fr) 96px`};
   grid-template-rows: 30px auto;
-  margin-bottom: ${spacing.xl};
+  margin-bottom: ${spacing.lg};
   overflow-x: auto;
   padding: 4px 2px 10px;
 
@@ -31,7 +32,7 @@ export const MobileStepLabel = styled.p`
     display: block;
     ${typography.captionStrong}
     color: ${colors.ink};
-    margin: ${spacing.sm} 0 ${spacing.xl};
+    margin: ${spacing.sm} 0 ${spacing.lg};
   }
 `;
 
@@ -90,13 +91,14 @@ export const StepTitle = styled.span<{ $now?: boolean }>`
 
 // Barra fixa na parte inferior da tela — largura descontando a sidebar
 // (220px, ver components/Sidebar/styles.ts), que some no mesmo breakpoint.
+// Fica encostada em cima do rodapé global (components/Footer), não sobre ele.
 export const FooterBar = styled.div`
   display: flex;
   align-items: center;
   gap: ${spacing.sm};
   flex-wrap: wrap;
   position: fixed;
-  bottom: 0;
+  bottom: ${FOOTER_HEIGHT}px;
   left: 220px;
   right: 0;
   background: ${colors.canvas};
@@ -113,7 +115,9 @@ export const FooterBar = styled.div`
   }
 `;
 
-// Reserva espaço no fim do conteúdo para a FooterBar fixa não cobrir nada.
+// Reserva espaço no fim do conteúdo para a FooterBar fixa não cobrir nada
+// — só a altura da própria barra; o rodapé global (Footer) abaixo dela já
+// reserva seu próprio espaço via padding-bottom do MainArea (App.tsx).
 export const FooterSpacerBlock = styled.div`
   height: 76px;
 `;

@@ -10,12 +10,15 @@ interface ChipMultiSelectProps {
   max?: number;
   exclude?: number[];
   placeholder?: string;
+  // Ícone opcional antes do rótulo (badge selecionado + opção da lista) —
+  // usado para mostrar a bandeira quando as opções são países.
+  renderIcon?: (value: number) => React.ReactNode;
 }
 
 // Combobox de busca com os itens selecionados exibidos como badges removíveis
 // — evita listar centenas de opções de uma vez quando o vocabulário é grande
 // (ex.: países).
-export function ChipMultiSelect({ name, options, max, exclude = [], placeholder }: ChipMultiSelectProps) {
+export function ChipMultiSelect({ name, options, max, exclude = [], placeholder, renderIcon }: ChipMultiSelectProps) {
   const { control } = useFormContext();
   const { t } = useTranslation();
   const [query, setQuery] = useState('');
@@ -61,6 +64,7 @@ export function ChipMultiSelect({ name, options, max, exclude = [], placeholder 
               <BadgeRow>
                 {value.map((v) => (
                   <Badge key={v}>
+                    {renderIcon?.(v)}
                     {labelFor(v)}
                     <RemoveBadge type="button" onClick={() => remove(v)} aria-label={`${t('common.remove')} ${labelFor(v)}`}>×</RemoveBadge>
                   </Badge>
@@ -81,6 +85,7 @@ export function ChipMultiSelect({ name, options, max, exclude = [], placeholder 
                     {available.length === 0 && <EmptyOption>{t('formFields.chipMultiSelect.noResults')}</EmptyOption>}
                     {available.map((o) => (
                       <DropdownOption key={o.value} type="button" onClick={() => add(o.value)}>
+                        {renderIcon?.(o.value)}
                         {o.label}
                       </DropdownOption>
                     ))}

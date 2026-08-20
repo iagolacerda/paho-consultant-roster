@@ -5,8 +5,8 @@ export const AssistCard = styled.div`
   border: 1px solid ${colors.hairline};
   background: ${colors.canvas};
   border-radius: ${radius.lg};
-  padding: ${spacing.lg};
-  margin-bottom: ${spacing.lg};
+  padding: ${spacing.md};
+  margin-bottom: ${spacing.md};
   display: flex;
   gap: ${spacing.md};
   align-items: flex-start;

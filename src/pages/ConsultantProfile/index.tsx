@@ -1,12 +1,12 @@
 import React from 'react';
 import { FormProvider } from 'react-hook-form';
-import { Page, Content, PageHeader, PageTitle, PageSubtitle } from '../../components/PageShell';
+import { useNavigate } from 'react-router-dom';
+import { Page, Content, PageHeading } from '../../components/PageShell';
 import { Button } from '../../components/Buttons';
 import { useTranslation } from '../../i18n';
 import { useConsultantProfileForm } from './useConsultantProfileForm';
 import { ProfileStepper } from './ProfileStepper';
 import { FooterBar, FooterSpacer, FooterSpacerBlock } from './styles';
-import { IdentitySection } from './sections/IdentitySection';
 import { ExpertiseSection } from './sections/ExpertiseSection';
 import { ExperienceSection } from './sections/ExperienceSection';
 import { AvailabilitySection } from './sections/AvailabilitySection';
@@ -14,7 +14,6 @@ import { ComplianceSection } from './sections/ComplianceSection';
 import { ReviewSection } from './sections/ReviewSection';
 
 const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
-  identity: IdentitySection,
   expertise: ExpertiseSection,
   experience: ExperienceSection,
   availability: AvailabilitySection,
@@ -23,6 +22,7 @@ const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
 
 export function ConsultantProfile() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const {
     form,
     steps,
@@ -43,10 +43,12 @@ export function ConsultantProfile() {
   return (
     <Page>
       <Content>
-        <PageHeader>
-          <PageTitle>{t('consultantProfile.title')}</PageTitle>
-          <PageSubtitle>{t('consultantProfile.subtitle')}</PageSubtitle>
-        </PageHeader>
+        <PageHeading
+          onBack={() => navigate(-1)}
+          backLabel={t('opportunityDetail.back')}
+          title={t('consultantProfile.title')}
+          subtitle={t('consultantProfile.subtitle')}
+        />
 
         <ProfileStepper steps={steps} current={stepIndex} maxReached={maxReached} onSelect={goToStep} />
 

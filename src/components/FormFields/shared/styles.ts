@@ -5,8 +5,8 @@ export const SectionCard = styled.section`
   background: ${colors.canvas};
   border: 1px solid ${colors.hairline};
   border-radius: ${radius.lg};
-  padding: ${spacing.lg};
-  margin-bottom: ${spacing.lg};
+  padding: ${spacing.md};
+  margin-bottom: ${spacing.md};
 `;
 
 export const SectionTitle = styled.h2`
@@ -18,14 +18,14 @@ export const SectionTitle = styled.h2`
 export const SectionDescription = styled.p`
   ${typography.caption}
   color: ${colors.inkMuted48};
-  margin: 0 0 ${spacing.md};
+  margin: 0 0 ${spacing.sm};
   line-height: 1.5;
 `;
 
 export const FieldGrid = styled.div<{ $cols?: 1 | 2 | 3 }>`
   display: grid;
   grid-template-columns: repeat(${({ $cols = 2 }) => $cols}, 1fr);
-  gap: ${spacing.md};
+  gap: ${spacing.sm};
 
   @media (max-width: 720px) {
     grid-template-columns: 1fr;

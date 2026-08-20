@@ -6,6 +6,9 @@ import { Badge } from '../../components/Badge';
 import { FeedbackModal } from '../../components/FeedbackModal';
 import { useModal } from '../../hooks/useModal';
 import { useTranslation } from '../../i18n';
+import { formatDate } from '../../utils/date';
+import { isoCodeByName } from '../../data/paho/countryFlags';
+import { CountryFlag } from '../../components/CountryFlag';
 import { MOCK_OPPORTUNITIES } from '../../data/paho/mockOpportunities';
 import { APPLICATION_STATUS_STYLES } from '../../data/paho/mockApplications';
 import { applicationsService } from '../../services/applicationsService';
@@ -93,9 +96,14 @@ export function OpportunityDetail() {
 
           <MetaGrid>
             <MetaTerm>{t('opportunityDetail.country')}</MetaTerm>
-            <MetaValue>{opportunity.country}</MetaValue>
+            <MetaValue style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+              <CountryFlag code={isoCodeByName(opportunity.country)} label={opportunity.country} />
+              {opportunity.country}
+            </MetaValue>
+            <MetaTerm>{t('opportunityDetail.sector')}</MetaTerm>
+            <MetaValue>{opportunity.counterpartSector}</MetaValue>
             <MetaTerm>{t('opportunityDetail.period')}</MetaTerm>
-            <MetaValue>{opportunity.startDate} – {opportunity.endDate}</MetaValue>
+            <MetaValue>{formatDate(opportunity.startDate, language)} – {formatDate(opportunity.endDate, language)}</MetaValue>
           </MetaGrid>
 
           <SectionLabel>{t('opportunityDetail.about')}</SectionLabel>
@@ -113,7 +121,7 @@ export function OpportunityDetail() {
               <SectionLabel>{t('opportunityDetail.applicationStatus')}</SectionLabel>
               <BodyText>
                 {t('opportunityDetail.submittedOn', {
-                  date: new Date(application.appliedAt).toLocaleDateString(language === 'pt' ? 'pt-BR' : 'en-US'),
+                  date: formatDate(application.appliedAt, language),
                 })}
                 {application.response ? ` ${application.response}` : ` ${t('opportunityDetail.underReview')}`}
               </BodyText>

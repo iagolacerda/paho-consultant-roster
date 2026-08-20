@@ -2,6 +2,7 @@
 // Um perfil abaixo de 70 não é retornado pelo matching (BR-05 / V-20).
 
 import { ConsultantProfileFormValues } from './types';
+import { CURRENT_USER } from './mockSession';
 
 export const COMPLETENESS_THRESHOLD = 70;
 
@@ -13,9 +14,12 @@ interface ScoreElement {
 
 const ELEMENTS: ScoreElement[] = [
   {
+    // Identidade e contato agora moram na tela "Meu perfil" (conta), não no
+    // formulário profissional — como é sempre a mesma sessão mockada, esse
+    // elemento reflete o cadastro da conta em vez de um campo deste form.
     labelKey: 'completeness.locationContact',
     weight: 10,
-    earned: (p) => Boolean(p.firstName && p.lastName && p.email && p.countryResidence && p.city),
+    earned: () => Boolean(CURRENT_USER.firstName && CURRENT_USER.lastName && CURRENT_USER.email && CURRENT_USER.countryResidence && CURRENT_USER.city),
   },
   {
     labelKey: 'completeness.primaryArea',

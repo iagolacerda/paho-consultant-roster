@@ -63,6 +63,7 @@ export const Th = styled.th`
   text-transform: uppercase;
   letter-spacing: 0.06em;
   text-align: left;
+  white-space: nowrap;
   padding: ${spacing.sm} ${spacing.lg};
   background: ${colors.canvasParchment};
   border-bottom: 1px solid ${colors.hairline};

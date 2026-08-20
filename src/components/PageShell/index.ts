@@ -1,1 +1,2 @@
-export { Page, Content, PageHeader, PageTitle, PageSubtitle, TitleRow } from './styles';
+export { Page, Content, PageHeader, PageTitle, PageSubtitle, TitleRow, PageHeaderIcon } from './styles';
+export { PageHeading } from './PageHeading';

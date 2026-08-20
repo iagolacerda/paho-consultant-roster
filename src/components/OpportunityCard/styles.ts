@@ -10,7 +10,7 @@ export const Card = styled.button`
   background: ${colors.canvas};
   border: 1px solid ${colors.hairline};
   border-radius: ${radius.lg};
-  padding: ${spacing.lg};
+  overflow: hidden;
   cursor: pointer;
   box-sizing: border-box;
   transition: border-color 0.12s, box-shadow 0.12s;
@@ -21,22 +21,31 @@ export const Card = styled.button`
   }
 `;
 
-// min-height reserva espaço para 2 linhas de badges — sem isso, cards com
-// uma badge a menos (ou textos mais curtos) ficam com o título alguns
-// pixels mais alto que os vizinhos na mesma linha do grid.
+export const CardHeader = styled.div`
+  background: ${colors.primarySurface};
+  border-bottom: 1px solid ${colors.hairline};
+  padding: ${spacing.md} ${spacing.lg};
+`;
+
+export const CardBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: ${spacing.md} ${spacing.lg} ${spacing.lg};
+`;
+
 export const CardBadges = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 6px;
   flex-wrap: wrap;
-  min-height: 54px;
-  margin-bottom: ${spacing.sm};
+  margin-top: ${spacing.xs};
 `;
 
 export const CardTitle = styled.h3`
   ${typography.bodyStrong}
-  color: ${colors.ink};
-  margin: 0 0 6px;
+  color: ${colors.primary};
+  margin: 0;
 `;
 
 export const CardSummary = styled.p`
@@ -48,8 +57,9 @@ export const CardSummary = styled.p`
 
 export const CardMeta = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: ${spacing.md};
-  flex-wrap: wrap;
   margin-top: auto;
   padding-top: ${spacing.sm};
   ${typography.finePrint}

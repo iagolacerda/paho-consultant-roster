@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from '../../i18n';
 import { PaginationBar, PaginationInfo, PaginationControls, PageButton, Ellipsis } from './styles';
 
 interface PaginationProps {
@@ -27,6 +28,7 @@ function buildPages(current: number, total: number): (number | '...')[] {
 }
 
 export function Pagination({ page, totalPages, total, pageSize, onPageChange }: PaginationProps) {
+  const { t } = useTranslation();
   if (totalPages <= 1) return null;
 
   const effectiveTotal = Math.max(totalPages, 1);
@@ -37,14 +39,14 @@ export function Pagination({ page, totalPages, total, pageSize, onPageChange }: 
   return (
     <PaginationBar>
       <PaginationInfo>
-        {from}–{to} de {total} {total === 1 ? 'item' : 'itens'}
+        {from}–{to} {t('common.of')} {total} {total === 1 ? t('common.item') : t('common.items')}
       </PaginationInfo>
 
       <PaginationControls>
         <PageButton
           disabled={page === 1}
           onClick={() => onPageChange(page - 1)}
-          aria-label="Página anterior"
+          aria-label={t('pagination.previousPage')}
         >
           ‹
         </PageButton>
@@ -66,7 +68,7 @@ export function Pagination({ page, totalPages, total, pageSize, onPageChange }: 
         <PageButton
           disabled={page === effectiveTotal}
           onClick={() => onPageChange(page + 1)}
-          aria-label="Próxima página"
+          aria-label={t('pagination.nextPage')}
         >
           ›
         </PageButton>

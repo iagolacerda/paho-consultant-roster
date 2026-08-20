@@ -12,6 +12,7 @@ import {
   ChipMultiSelect,
   SkillsPicker,
   LanguagesPicker,
+  CvAssistUpload,
 } from '../../../components/FormFields';
 
 export function ExpertiseSection() {
@@ -23,6 +24,7 @@ export function ExpertiseSection() {
 
   return (
     <>
+      <CvAssistUpload />
       <SectionCard>
         <SectionTitle>{t('sections.expertise.areaTitle')}</SectionTitle>
         <SectionDescription>{t('sections.expertise.areaDescription')}</SectionDescription>
@@ -36,7 +38,7 @@ export function ExpertiseSection() {
           </Select>
         </Field>
 
-        <div style={{ marginTop: 16 }}>
+        <div style={{ marginTop: 12 }}>
           <Field
             label={t('sections.expertise.secondaryAreas')}
             error={errors.secondaryAreas?.message as string | undefined}
@@ -61,7 +63,7 @@ export function ExpertiseSection() {
         )}
         <p style={{ fontSize: 12, color: '#7a7a7a', marginTop: 8 }}>{t('sections.expertise.skillsSelected', { count: skills.length })}</p>
 
-        <div style={{ marginTop: 16 }}>
+        <div style={{ marginTop: 12 }}>
           <Field label={t('sections.expertise.skillRequestLabel')} hint={t('sections.expertise.skillRequestHint')}>
             <Input placeholder={t('sections.expertise.skillRequestPlaceholder')} {...register('skillRequest')} />
           </Field>

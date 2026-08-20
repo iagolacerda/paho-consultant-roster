@@ -20,6 +20,7 @@ const StyledBadge = styled.span<{ $bg: string; $color: string }>`
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
+  white-space: nowrap;
   padding: 4px 10px;
   border-radius: ${radius.pill};
   background: ${({ $bg }) => $bg};

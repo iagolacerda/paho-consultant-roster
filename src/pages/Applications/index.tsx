@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Page, Content, PageHeader, PageTitle, PageSubtitle } from '../../components/PageShell';
+import { Page, Content, PageHeading } from '../../components/PageShell';
 import { ResultsCard, Table, Th, Td, Tr, ChevronTd, EmptyState, MobileList } from '../../components/DataTable';
 import { Badge } from '../../components/Badge';
+import { Pagination } from '../../components/Pagination';
 import { MOCK_OPPORTUNITIES, Opportunity } from '../../data/paho/mockOpportunities';
 import { Application, APPLICATION_STATUS_STYLES } from '../../data/paho/mockApplications';
 import { applicationsService } from '../../services/applicationsService';
 import { ListRow, RowMain, RowTitle, RowMeta, RowChevron } from '../../components/ListRow';
+import { ApplicationsIcon } from '../../components/icons';
+import { isoCodeByName } from '../../data/paho/countryFlags';
+import { CountryFlag } from '../../components/CountryFlag';
 import { useTranslation } from '../../i18n';
 
 interface ApplicationRow {
@@ -14,9 +18,12 @@ interface ApplicationRow {
   opportunity: Opportunity;
 }
 
+const PAGE_SIZE = 6;
+
 export function Applications() {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const [page, setPage] = useState(1);
   const statusLabel = (status: Application['status']) => t(`applicationStatus.${status}`);
   const rows: ApplicationRow[] = [];
   applicationsService.list().forEach((app) => {
@@ -24,13 +31,14 @@ export function Applications() {
     if (opportunity) rows.push({ app, opportunity });
   });
 
+  const totalPages = Math.max(1, Math.ceil(rows.length / PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const pageRows = rows.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+
   return (
     <Page>
       <Content>
-        <PageHeader>
-          <PageTitle>{t('applications.title')}</PageTitle>
-          <PageSubtitle>{t('applications.subtitle')}</PageSubtitle>
-        </PageHeader>
+        <PageHeading icon={<ApplicationsIcon />} title={t('applications.title')} subtitle={t('applications.subtitle')} />
 
         {rows.length === 0 ? (
           <ResultsCard><EmptyState>{t('applications.empty')}</EmptyState></ResultsCard>
@@ -40,19 +48,26 @@ export function Applications() {
               <thead>
                 <tr>
                   <Th>{t('applications.columnJob')}</Th>
-                  <Th>{t('applications.columnCountry')}</Th>
-                  <Th>{t('applications.columnStatus')}</Th>
-                  <Th aria-hidden />
+                  <Th style={{ width: 110 }}>{t('applications.columnCountry')}</Th>
+                  <Th style={{ width: 170 }}>{t('applications.columnSector')}</Th>
+                  <Th style={{ width: 150 }}>{t('applications.columnStatus')}</Th>
+                  <Th style={{ width: 40 }} aria-hidden />
                 </tr>
               </thead>
               <tbody>
-                {rows.map(({ app, opportunity }) => (
+                {pageRows.map(({ app, opportunity }) => (
                   <Tr key={app.opportunityId} $clickable onClick={() => navigate(`/oportunidades/${opportunity.id}`)}>
                     <Td>
                       <strong>{opportunity.title}</strong>
                       <div style={{ fontSize: 12, color: '#7a7a7a', marginTop: 2 }}>{opportunity.reference}</div>
                     </Td>
-                    <Td>{opportunity.country}</Td>
+                    <Td style={{ whiteSpace: 'nowrap' }}>
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                        <CountryFlag code={isoCodeByName(opportunity.country)} label={opportunity.country} />
+                        {opportunity.country}
+                      </span>
+                    </Td>
+                    <Td style={{ whiteSpace: 'nowrap' }}>{opportunity.counterpartSector}</Td>
                     <Td>
                       <Badge
                         label={statusLabel(app.status)}
@@ -66,11 +81,14 @@ export function Applications() {
             </Table>
 
             <MobileList>
-              {rows.map(({ app, opportunity }) => (
+              {pageRows.map(({ app, opportunity }) => (
                 <ListRow key={app.opportunityId} type="button" onClick={() => navigate(`/oportunidades/${opportunity.id}`)}>
                   <RowMain>
                     <RowTitle>{opportunity.title}</RowTitle>
-                    <RowMeta>{opportunity.country} · {opportunity.startDate.slice(0, 4)}</RowMeta>
+                    <RowMeta style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <CountryFlag code={isoCodeByName(opportunity.country)} label={opportunity.country} size={14} />
+                      {opportunity.country} · {opportunity.counterpartSector}
+                    </RowMeta>
                   </RowMain>
                   <Badge
                     label={statusLabel(app.status)}
@@ -80,6 +98,14 @@ export function Applications() {
                 </ListRow>
               ))}
             </MobileList>
+
+            <Pagination
+              page={currentPage}
+              totalPages={totalPages}
+              total={rows.length}
+              pageSize={PAGE_SIZE}
+              onPageChange={setPage}
+            />
           </ResultsCard>
         )}
       </Content>

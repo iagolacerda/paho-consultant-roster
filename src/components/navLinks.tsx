@@ -1,5 +1,5 @@
 import React from 'react';
-import { HomeIcon, ProfileIcon, ApplicationsIcon, BriefcaseIcon, JobsIcon } from './icons';
+import { HomeIcon, ProfileIcon, ApplicationsIcon, BriefcaseIcon, JobsIcon, ContractIcon } from './icons';
 
 export interface NavLinkItem {
   to: string;
@@ -16,6 +16,7 @@ export const NAV_LINKS: NavLinkItem[] = [
   { to: '/', labelKey: 'nav.home', icon: <HomeIcon />, end: true },
   { to: '/vagas', labelKey: 'nav.opportunities', icon: <JobsIcon /> },
   { to: '/candidaturas', labelKey: 'nav.applications', icon: <ApplicationsIcon /> },
+  { to: '/contratacoes', labelKey: 'nav.contracts', icon: <ContractIcon /> },
   { to: '/perfil-profissional', labelKey: 'nav.professionalProfile', icon: <BriefcaseIcon /> },
 ];
 

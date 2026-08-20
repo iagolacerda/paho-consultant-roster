@@ -12,7 +12,6 @@ import { consultantProfileService, SubmittedProfile } from '../../services/consu
 import { useTranslation } from '../../i18n';
 
 export const STEPS = [
-  { key: 'identity', labelKey: 'consultantProfile.steps.identity', fields: SECTION_FIELDS.identity },
   { key: 'expertise', labelKey: 'consultantProfile.steps.expertise', fields: SECTION_FIELDS.expertise },
   { key: 'experience', labelKey: 'consultantProfile.steps.experience', fields: SECTION_FIELDS.experience },
   { key: 'availability', labelKey: 'consultantProfile.steps.availability', fields: SECTION_FIELDS.availability },

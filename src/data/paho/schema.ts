@@ -1,8 +1,8 @@
-// Schema de validação do formulário de perfil do consultor.
-// Implementa as 24 regras da aba "3. Validation Rules" do Field Dictionary
-// que se aplicam no momento em que o consultor preenche/edita o perfil
-// (as regras de expiração, unicidade de e-mail etc. dependem de dados que
-// só existem no backend real e não têm equivalente aqui).
+// Schema de validação do perfil do consultor, dividido em dois formulários
+// independentes: identidade pessoal (tela "Meu perfil") e perfil profissional
+// (tela "Perfil profissional" — expertise, experiência, disponibilidade,
+// compliance). Implementa as regras da aba "3. Validation Rules" do Field
+// Dictionary que se aplicam a cada um.
 
 import { z } from 'zod';
 import { NO_INSTITUTIONAL_TIE_VALUE } from './choiceSets';
@@ -74,14 +74,10 @@ function buildAssignmentRecordSchema(t: T) {
 
 const isoDate = (message: string) => z.string().min(1, message);
 
-export function buildConsultantProfileSchema(t: T) {
-  const skillEntrySchema = buildSkillEntrySchema(t);
-  const languageEntrySchema = buildLanguageEntrySchema(t);
-  const assignmentRecordSchema = buildAssignmentRecordSchema(t);
-
+// Tela "Meu perfil" — identidade e contato (F-001–F-010).
+export function buildPersonalIdentitySchema(t: T) {
   return z
     .object({
-      // Seção 1 — Identidade e contato
       firstName: z.string().regex(NAME_PATTERN, t('validation.namePattern')),
       lastName: z.string().regex(NAME_PATTERN, t('validation.namePattern')),
       displayName: z.string().max(100).optional().default(''),
@@ -92,17 +88,54 @@ export function buildConsultantProfileSchema(t: T) {
       nationality: requiredChoice(t('validation.selectNationality')),
       nationality2: optionalChoice(),
       gender: optionalChoice(),
+    })
+    .superRefine((val, ctx) => {
+      // V-09 — nacionalidade secundária deve diferir da principal
+      if (val.nationality2 !== undefined && val.nationality2 === val.nationality) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: t('validation.selectSecondNationalityDifferent'),
+          path: ['nationality2'],
+        });
+      }
+    });
+}
 
-      // Seção 2 — Expertise técnica
+export type PersonalIdentityFormValues = z.output<ReturnType<typeof buildPersonalIdentitySchema>>;
+export type PersonalIdentityFormInput = z.input<ReturnType<typeof buildPersonalIdentitySchema>>;
+
+export const EMPTY_PERSONAL_IDENTITY: Partial<PersonalIdentityFormInput> = {
+  firstName: '',
+  lastName: '',
+  displayName: '',
+  email: '',
+  phone: '',
+  countryResidence: undefined,
+  city: '',
+  nationality: undefined,
+  nationality2: undefined,
+  gender: undefined,
+};
+
+// Tela "Perfil profissional" — expertise, experiência, disponibilidade e
+// compliance (F-011–F-057, exceto os campos de identidade acima).
+export function buildConsultantProfileSchema(t: T) {
+  const skillEntrySchema = buildSkillEntrySchema(t);
+  const languageEntrySchema = buildLanguageEntrySchema(t);
+  const assignmentRecordSchema = buildAssignmentRecordSchema(t);
+
+  return z
+    .object({
+      // Seção 1 — Expertise técnica
       primaryArea: requiredChoice(t('validation.selectPrimaryArea')),
       secondaryAreas: z.array(z.number()).max(3, t('validation.maxSecondaryAreas')).default([]),
       skills: z.array(skillEntrySchema).min(5, t('validation.minSkills')).max(15, t('validation.maxSkills')),
       skillRequest: z.string().max(100).optional().default(''),
 
-      // Seção 3 — Idiomas
+      // Seção 2 — Idiomas
       languages: z.array(languageEntrySchema).min(1, t('validation.addAtLeastOneLanguage')),
 
-      // Seção 4 — Experiência
+      // Seção 3 — Experiência
       yearsTotal: requiredChoice(t('validation.yearsTotalRequired')).refine((v) => v >= 0 && v <= 60, {
         message: t('validation.yearsRange'),
       }),
@@ -114,13 +147,13 @@ export function buildConsultantProfileSchema(t: T) {
       sectors: z.array(z.number()).default([]),
       countriesWorked: z.array(z.number()).default([]),
 
-      // Seção 5 — Registros de atuação
+      // Seção 4 — Registros de atuação
       assignments: z
         .array(assignmentRecordSchema)
         .min(2, t('validation.minAssignments'))
         .max(5, t('validation.maxAssignments')),
 
-      // Seção 6 — Disponibilidade
+      // Seção 5 — Disponibilidade
       availabilityStatus: requiredChoice(t('validation.selectAvailabilityStatus')),
       availableFrom: isoDate(t('validation.availableFromRequired')),
       availableUntil: z.string().optional().default(''),
@@ -129,11 +162,11 @@ export function buildConsultantProfileSchema(t: T) {
       workMode: requiredChoice(t('validation.selectWorkMode')),
       indicativeBand: optionalChoice(),
 
-      // Seção 7 — Documentos
+      // Seção 6 — Documentos
       cvFile: mockFileSchema.optional(),
       cvLink: z.string().max(500).optional().default(''),
 
-      // Seção 8 — Compliance
+      // Seção 7 — Compliance
       institutionalTie: requiredChoice(t('validation.selectInstitutionalTie')),
       dedicationRegime: requiredChoice(t('validation.selectDedicationRegime')),
       employerAuth: mockFileSchema.optional(),
@@ -164,15 +197,6 @@ export function buildConsultantProfileSchema(t: T) {
           code: z.ZodIssueCode.custom,
           message: t('validation.yearsInAreaExceedsTotal'),
           path: ['yearsPrimaryArea'],
-        });
-      }
-
-      // V-09 — nacionalidade secundária deve diferir da principal
-      if (val.nationality2 !== undefined && val.nationality2 === val.nationality) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: t('validation.selectSecondNationalityDifferent'),
-          path: ['nationality2'],
         });
       }
 
@@ -233,17 +257,6 @@ export type ConsultantProfileFormInput = z.input<ReturnType<typeof buildConsulta
 // começam vazios/undefined até o consultor preencher — react-hook-form aceita
 // DeepPartial em defaultValues.
 export const EMPTY_PROFILE: Partial<ConsultantProfileFormInput> = {
-  firstName: '',
-  lastName: '',
-  displayName: '',
-  email: '',
-  phone: '',
-  countryResidence: undefined,
-  city: '',
-  nationality: undefined,
-  nationality2: undefined,
-  gender: undefined,
-
   primaryArea: undefined,
   secondaryAreas: [],
   skills: [],
@@ -285,7 +298,6 @@ export const EMPTY_PROFILE: Partial<ConsultantProfileFormInput> = {
 // Nomes de campo por seção — usado pelo stepper para validar (`trigger`)
 // apenas a seção atual ao avançar, sem disparar erros das demais.
 export const SECTION_FIELDS = {
-  identity: ['firstName', 'lastName', 'displayName', 'email', 'phone', 'countryResidence', 'city', 'nationality', 'nationality2', 'gender'],
   expertise: ['primaryArea', 'secondaryAreas', 'skills', 'skillRequest', 'languages'],
   experience: ['yearsTotal', 'yearsPrimaryArea', 'highestDegree', 'fieldOfStudy', 'sectors', 'countriesWorked', 'assignments'],
   availability: ['availabilityStatus', 'availableFrom', 'availableUntil', 'maxCommitment', 'willingToTravel', 'workMode', 'indicativeBand', 'cvFile', 'cvLink'],
