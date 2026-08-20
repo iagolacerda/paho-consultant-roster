@@ -62,12 +62,13 @@ export function IdentityForm() {
           <CountrySelect name="nationality2" emptyLabel={t('common.none')} emptySelectable />
         </Field>
         <Field label={t('sections.identity.gender')} hint={t('sections.identity.genderHint')}>
-          <Select {...register('gender', { valueAsNumber: true })} defaultValue="">
-            <option value="">{t('common.doNotInform')}</option>
-            {GENDERS.map((g) => (
-              <option key={g.value} value={g.value}>{g.label}</option>
-            ))}
-          </Select>
+          <Select
+            name="gender"
+            options={GENDERS}
+            placeholder={t('common.doNotInform')}
+            emptySelectable
+            emptyLabel={t('common.doNotInform')}
+          />
         </Field>
       </FieldGrid>
     </SectionCard>

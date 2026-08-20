@@ -30,12 +30,7 @@ export function ExpertiseSection() {
         <SectionDescription>{t('sections.expertise.areaDescription')}</SectionDescription>
 
         <Field label={t('sections.expertise.primaryArea')} required error={errors.primaryArea?.message}>
-          <Select {...register('primaryArea', { valueAsNumber: true })} defaultValue="">
-            <option value="" disabled>{t('common.select')}</option>
-            {TECHNICAL_AREAS.map((a) => (
-              <option key={a.value} value={a.value}>{a.label}</option>
-            ))}
-          </Select>
+          <Select name="primaryArea" options={TECHNICAL_AREAS} placeholder={t('common.select')} />
         </Field>
 
         <div style={{ marginTop: 12 }}>

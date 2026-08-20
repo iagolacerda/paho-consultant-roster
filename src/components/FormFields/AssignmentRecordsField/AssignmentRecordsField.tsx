@@ -74,23 +74,13 @@ export function AssignmentRecordsField({ name }: AssignmentRecordsFieldProps) {
 
             <FieldGrid $cols={3} style={{ marginTop: 12 }}>
               <Field label={t('sections.experience.assignmentSector')} required error={rowErrors.sector?.message}>
-                <Select {...register(`${name}.${index}.sector` as const, { valueAsNumber: true })} defaultValue="">
-                  <option value="" disabled>{t('common.select')}</option>
-                  {SECTORS.map((s) => (
-                    <option key={s.value} value={s.value}>{s.label}</option>
-                  ))}
-                </Select>
+                <Select name={`${name}.${index}.sector`} options={SECTORS} placeholder={t('common.select')} />
               </Field>
               <Field label={t('sections.experience.assignmentCountry')} required error={rowErrors.country?.message}>
                 <CountrySelect name={`${name}.${index}.country`} />
               </Field>
               <Field label={t('sections.experience.assignmentRole')} required error={rowErrors.role?.message}>
-                <Select {...register(`${name}.${index}.role` as const, { valueAsNumber: true })} defaultValue="">
-                  <option value="" disabled>{t('common.select')}</option>
-                  {ASSIGNMENT_ROLES.map((r) => (
-                    <option key={r.value} value={r.value}>{r.label}</option>
-                  ))}
-                </Select>
+                <Select name={`${name}.${index}.role`} options={ASSIGNMENT_ROLES} placeholder={t('common.select')} />
               </Field>
             </FieldGrid>
 

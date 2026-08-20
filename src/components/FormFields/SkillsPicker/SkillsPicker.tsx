@@ -23,7 +23,7 @@ interface SkillsPickerProps {
 }
 
 export function SkillsPicker({ name }: SkillsPickerProps) {
-  const { control, register } = useFormContext();
+  const { control } = useFormContext();
   const { fields, append, remove } = useFieldArray({ control, name: name as 'skills' });
   const [query, setQuery] = useState('');
   const { t } = useTranslation();
@@ -89,13 +89,7 @@ export function SkillsPicker({ name }: SkillsPickerProps) {
                 <tr key={field.id}>
                   <td>{labelFor(SKILL_GROUPS.flatMap((g) => g.items), skillValue)}</td>
                   <td style={{ width: 170 }}>
-                    <Select {...register(`${name}.${index}.depth` as const, { valueAsNumber: true })} defaultValue={DEFAULT_DEPTH}>
-                      {SKILL_DEPTHS.map((d) => (
-                        <option key={d.value} value={d.value}>
-                          {d.label}
-                        </option>
-                      ))}
-                    </Select>
+                    <Select name={`${name}.${index}.depth`} options={SKILL_DEPTHS} />
                   </td>
                   <td style={{ width: 36 }}>
                     <RemoveButton type="button" onClick={() => remove(index)} aria-label={t('common.remove')}>

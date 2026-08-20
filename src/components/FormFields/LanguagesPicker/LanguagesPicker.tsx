@@ -17,9 +17,9 @@ interface LanguagesPickerProps {
 // "Adicionar" e ele entra na tabela abaixo já com uma proficiência padrão,
 // que pode ser ajustada por linha.
 export function LanguagesPicker({ name }: LanguagesPickerProps) {
-  const { control, register } = useFormContext();
+  const { control } = useFormContext();
   const { fields, append, remove } = useFieldArray({ control, name: name as 'languages' });
-  const [pending, setPending] = useState('');
+  const [pending, setPending] = useState<string | number | undefined>(undefined);
   const { t } = useTranslation();
   const { LANGUAGES, PROFICIENCIES } = useChoiceSets();
 
@@ -27,10 +27,9 @@ export function LanguagesPicker({ name }: LanguagesPickerProps) {
   const available = LANGUAGES.filter((l) => !selectedValues.includes(l.value));
 
   const handleAdd = () => {
-    const value = Number(pending);
-    if (!value) return;
-    append({ language: value, proficiency: DEFAULT_PROFICIENCY } as never);
-    setPending('');
+    if (pending === undefined) return;
+    append({ language: pending, proficiency: DEFAULT_PROFICIENCY } as never);
+    setPending(undefined);
   };
 
   return (
@@ -44,11 +43,7 @@ export function LanguagesPicker({ name }: LanguagesPickerProps) {
                 <tr key={field.id}>
                   <td>{labelFor(LANGUAGES, languageValue)}</td>
                   <td style={{ width: 190 }}>
-                    <Select {...register(`${name}.${index}.proficiency` as const, { valueAsNumber: true })} defaultValue={DEFAULT_PROFICIENCY}>
-                      {PROFICIENCIES.map((p) => (
-                        <option key={p.value} value={p.value}>{p.label}</option>
-                      ))}
-                    </Select>
+                    <Select name={`${name}.${index}.proficiency`} options={PROFICIENCIES} />
                   </td>
                   <td style={{ width: 36 }}>
                     <RemoveButton type="button" onClick={() => remove(index)} aria-label={t('common.remove')}>×</RemoveButton>
@@ -62,13 +57,10 @@ export function LanguagesPicker({ name }: LanguagesPickerProps) {
 
       {available.length > 0 && (
         <div style={{ display: 'flex', gap: 8, marginTop: fields.length > 0 ? 12 : 0 }}>
-          <Select value={pending} onChange={(e) => setPending(e.target.value)} style={{ flex: 1 }}>
-            <option value="">{t('formFields.languagesPicker.addPlaceholder')}</option>
-            {available.map((l) => (
-              <option key={l.value} value={l.value}>{l.label}</option>
-            ))}
-          </Select>
-          <Button type="button" $variant="primary" onClick={handleAdd} disabled={!pending}>
+          <div style={{ flex: 1 }}>
+            <Select value={pending} onChange={setPending} options={available} placeholder={t('formFields.languagesPicker.addPlaceholder')} />
+          </div>
+          <Button type="button" $variant="primary" onClick={handleAdd} disabled={pending === undefined}>
             {t('common.add')}
           </Button>
         </div>

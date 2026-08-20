@@ -43,10 +43,14 @@ export function FilterDrawer({ initialFilters, technicalAreas, countries, bands,
   return (
     <Modal title={t('opportunities.filtersTitle')} onClose={onClose} position="right">
       <Field label={t('opportunities.filterTechnicalArea')}>
-        <Select value={draft.technicalArea} onChange={(e) => setDraft({ ...draft, technicalArea: e.target.value })}>
-          <option value="">{t('common.all')}</option>
-          {technicalAreas.map((a) => <option key={a} value={a}>{a}</option>)}
-        </Select>
+        <Select
+          value={draft.technicalArea || undefined}
+          onChange={(v) => setDraft({ ...draft, technicalArea: (v as string) ?? '' })}
+          options={technicalAreas.map((a) => ({ value: a, label: a }))}
+          placeholder={t('common.all')}
+          emptySelectable
+          emptyLabel={t('common.all')}
+        />
       </Field>
 
       <div style={{ marginTop: 16 }}>
@@ -75,10 +79,14 @@ export function FilterDrawer({ initialFilters, technicalAreas, countries, bands,
 
       <div style={{ marginTop: 16 }}>
         <Field label={t('opportunities.filterBand')}>
-          <Select value={draft.band} onChange={(e) => setDraft({ ...draft, band: e.target.value })}>
-            <option value="">{t('common.all')}</option>
-            {bands.map((b) => <option key={b} value={b}>{b}</option>)}
-          </Select>
+          <Select
+            value={draft.band || undefined}
+            onChange={(v) => setDraft({ ...draft, band: (v as string) ?? '' })}
+            options={bands.map((b) => ({ value: b, label: b }))}
+            placeholder={t('common.all')}
+            emptySelectable
+            emptyLabel={t('common.all')}
+          />
         </Field>
       </div>
 

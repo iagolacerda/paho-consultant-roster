@@ -49,39 +49,25 @@ export function AvailabilitySection() {
 
         <FieldGrid $cols={2} style={{ marginTop: 12 }}>
           <Field label={t('sections.availability.maxCommitment')} required error={errors.maxCommitment?.message}>
-            <Select {...register('maxCommitment', { valueAsNumber: true })} defaultValue="">
-              <option value="" disabled>{t('common.select')}</option>
-              {COMMITMENTS.map((c) => (
-                <option key={c.value} value={c.value}>{c.label}</option>
-              ))}
-            </Select>
+            <Select name="maxCommitment" options={COMMITMENTS} placeholder={t('common.select')} />
           </Field>
           <Field label={t('sections.availability.willingToTravel')} required error={errors.willingToTravel?.message}>
-            <Select {...register('willingToTravel', { valueAsNumber: true })} defaultValue="">
-              <option value="" disabled>{t('common.select')}</option>
-              {TRAVEL_OPTIONS.map((opt) => (
-                <option key={opt.value} value={opt.value}>{opt.label}</option>
-              ))}
-            </Select>
+            <Select name="willingToTravel" options={TRAVEL_OPTIONS} placeholder={t('common.select')} />
           </Field>
         </FieldGrid>
 
         <FieldGrid $cols={2} style={{ marginTop: 12 }}>
           <Field label={t('sections.availability.workMode')} required error={errors.workMode?.message}>
-            <Select {...register('workMode', { valueAsNumber: true })} defaultValue="">
-              <option value="" disabled>{t('common.select')}</option>
-              {WORK_MODES.map((w) => (
-                <option key={w.value} value={w.value}>{w.label}</option>
-              ))}
-            </Select>
+            <Select name="workMode" options={WORK_MODES} placeholder={t('common.select')} />
           </Field>
           <Field label={t('sections.availability.indicativeBand')} hint={t('sections.availability.indicativeBandHint')}>
-            <Select {...register('indicativeBand', { valueAsNumber: true })} defaultValue="">
-              <option value="">{t('common.doNotInform')}</option>
-              {PAY_BANDS.map((b) => (
-                <option key={b.value} value={b.value}>{b.label}</option>
-              ))}
-            </Select>
+            <Select
+              name="indicativeBand"
+              options={PAY_BANDS}
+              placeholder={t('common.doNotInform')}
+              emptySelectable
+              emptyLabel={t('common.doNotInform')}
+            />
           </Field>
         </FieldGrid>
       </SectionCard>

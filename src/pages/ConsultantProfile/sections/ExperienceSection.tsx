@@ -35,12 +35,7 @@ export function ExperienceSection() {
             <Input type="number" {...register('yearsPrimaryArea', { valueAsNumber: true })} />
           </Field>
           <Field label={t('sections.experience.highestDegree')} required error={errors.highestDegree?.message}>
-            <Select {...register('highestDegree', { valueAsNumber: true })} defaultValue="">
-              <option value="" disabled>{t('common.select')}</option>
-              {QUALIFICATIONS.map((q) => (
-                <option key={q.value} value={q.value}>{q.label}</option>
-              ))}
-            </Select>
+            <Select name="highestDegree" options={QUALIFICATIONS} placeholder={t('common.select')} />
           </Field>
         </FieldGrid>
 
